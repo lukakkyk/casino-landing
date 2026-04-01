@@ -1,0 +1,14 @@
+{
+    "name": "casino-landing",
+    "private": true,
+    "packageManager": "pnpm@10.0.0",
+    "scripts": {
+        "dev:mobile": "pnpm --filter mobile dev",
+        "dev:web": "pnpm --filter web dev",
+        "dev": "pnpm -r --parallel dev",
+        "typecheck": "pnpm -r typecheck"
+    },
+    "devDependencies": {
+        "typescript": "^6.0.2"
+    }
+}
