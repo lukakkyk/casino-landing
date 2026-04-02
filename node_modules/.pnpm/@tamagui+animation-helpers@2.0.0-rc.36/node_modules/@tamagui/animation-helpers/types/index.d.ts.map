@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,SACE,qBACA,yBACA,cACA,uBACA,uBACA,kCACK;AAEP,cAAc,iBAAiB,sBAAsB,2BAA2B",
+  "names": [],
+  "sources": [
+    "src/index.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export {\n  normalizeTransition,\n  getAnimationForProperty,\n  hasAnimation,\n  getAnimatedProperties,\n  getEffectiveAnimation,\n  getAnimationConfigsForKeys,\n} from './normalizeTransition'\n\nexport type { AnimationConfig, NormalizedTransition, TransitionPropInput } from './types'\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/purple.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const purple = {\n  purple1: '#fefcfe',\n  purple2: '#fbf7fe',\n  purple3: '#f7edfe',\n  purple4: '#f2e2fc',\n  purple5: '#ead5f9',\n  purple6: '#e0c4f4',\n  purple7: '#d1afec',\n  purple8: '#be93e4',\n  purple9: '#8e4ec6',\n  purple10: '#8347b9',\n  purple11: '#8145b5',\n  purple12: '#402060',\n}\n"
+  ]
+}

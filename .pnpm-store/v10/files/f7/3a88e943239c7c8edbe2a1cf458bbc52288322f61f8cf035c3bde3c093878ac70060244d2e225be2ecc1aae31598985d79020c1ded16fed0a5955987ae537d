@@ -1,0 +1,11 @@
+{
+  "mappings": "AAEA,cAAc,kBAAkB;AAEhC,OAAO,cAAM,YAAY",
+  "names": [],
+  "sources": [
+    "src/matchMedia.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// web-only use platform:\n\nimport type { MatchMedia } from '@tamagui/web'\n\nexport const matchMedia: MatchMedia = globalThis['matchMedia']\n"
+  ]
+}

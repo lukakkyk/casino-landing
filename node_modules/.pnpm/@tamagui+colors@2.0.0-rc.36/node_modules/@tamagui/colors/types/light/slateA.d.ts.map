@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/slateA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const slateA = {\n  slateA1: '#00005503',\n  slateA2: '#00005506',\n  slateA3: '#0000330f',\n  slateA4: '#00002d17',\n  slateA5: '#0009321f',\n  slateA6: '#00002f26',\n  slateA7: '#00062e32',\n  slateA8: '#00083046',\n  slateA9: '#00051d74',\n  slateA10: '#00071b7f',\n  slateA11: '#0007149f',\n  slateA12: '#000509e3',\n}\n"
+  ]
+}

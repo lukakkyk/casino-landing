@@ -1,0 +1,1 @@
+{"version":3,"file":"PopupTriggerMap.d.ts","sourceRoot":"","sources":["../../src/interactions/PopupTriggerMap.ts"],"names":[],"mappings":"AAKA,qBAAa,eAAe;IAC1B,OAAO,CAAC,GAAG,CAA6B;IACxC,OAAO,CAAC,QAAQ,CAAqB;IAErC,GAAG,CAAC,EAAE,EAAE,MAAM,EAAE,OAAO,EAAE,OAAO;IAShC,MAAM,CAAC,EAAE,EAAE,MAAM;IAQjB,UAAU,CAAC,OAAO,EAAE,OAAO,GAAG,OAAO;CAGtC"}

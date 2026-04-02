@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/yellow.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const yellow = {\n  yellow1: '#fdfdf9',\n  yellow2: '#fefce9',\n  yellow3: '#fffab8',\n  yellow4: '#fff394',\n  yellow5: '#ffe770',\n  yellow6: '#f3d768',\n  yellow7: '#e4c767',\n  yellow8: '#d5ae39',\n  yellow9: '#ffe629',\n  yellow10: '#ffdc00',\n  yellow11: '#9e6c00',\n  yellow12: '#473b1f',\n}\n"
+  ]
+}

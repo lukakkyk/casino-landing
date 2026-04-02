@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/plumA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const plumA = {\n  plumA1: '#f112f108',\n  plumA2: '#f22ff211',\n  plumA3: '#fd4cfd27',\n  plumA4: '#f646ff3a',\n  plumA5: '#f455ff48',\n  plumA6: '#f66dff56',\n  plumA7: '#f07cfd70',\n  plumA8: '#ee84ff95',\n  plumA9: '#e961feb6',\n  plumA10: '#ed70ffc0',\n  plumA11: '#f19cfef3',\n  plumA12: '#feddfef4',\n}\n"
+  ]
+}

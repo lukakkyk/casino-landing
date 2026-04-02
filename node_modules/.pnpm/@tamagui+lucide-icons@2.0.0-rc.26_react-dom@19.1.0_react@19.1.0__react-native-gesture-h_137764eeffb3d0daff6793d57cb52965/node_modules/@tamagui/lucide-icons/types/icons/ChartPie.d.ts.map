@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,UAAU",
+  "names": [],
+  "sources": [
+    "src/icons/ChartPie.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const ChartPie: IconComponent = themed(\n  memo(function ChartPie(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path\n          d=\"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z\"\n          stroke={color}\n        />\n        <Path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

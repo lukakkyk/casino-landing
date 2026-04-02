@@ -1,0 +1,11 @@
+{
+  "mappings": "AAcA,OAAO,iBAAS,OAAO,GACrB,cAAc,GACd,oBACA,oCACO",
+  "names": [],
+  "sources": [
+    "src/useGet.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "import * as React from 'react'\n\nconst isServer = typeof window === 'undefined'\n\n// Use useInsertionEffect on the client to ensure the ref is updated before any\n// useLayoutEffect reads the returned callback. This fixes a React 19 timing\n// issue where a consumer's useLayoutEffect could fire before this ref update,\n// causing stale values. Falls back to useLayoutEffect for React < 18.3.\nconst useIsomorphicInsertionEffect = isServer\n  ? React.useEffect\n  : React.useInsertionEffect || React.useLayoutEffect\n\n// keeps a reference to the current value easily\n\nexport function useGet<A>(\n  currentValue: A,\n  initialValue?: any,\n  forwardToFunction?: boolean\n): () => A {\n  const curRef = React.useRef<any>(initialValue ?? currentValue)\n  useIsomorphicInsertionEffect(() => {\n    curRef.current = currentValue\n  })\n\n  return React.useCallback(\n    forwardToFunction\n      ? (...args) => curRef.current?.apply(null, args)\n      : () => curRef.current,\n    []\n  )\n}\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/orange.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const orange = {\n  orange1: '#fefcfb',\n  orange2: '#fff7ed',\n  orange3: '#ffefd6',\n  orange4: '#ffdfb5',\n  orange5: '#ffd19a',\n  orange6: '#ffc182',\n  orange7: '#f5ae73',\n  orange8: '#ec9455',\n  orange9: '#f76b15',\n  orange10: '#ef5f00',\n  orange11: '#cc4e00',\n  orange12: '#582d1d',\n}\n"
+  ]
+}

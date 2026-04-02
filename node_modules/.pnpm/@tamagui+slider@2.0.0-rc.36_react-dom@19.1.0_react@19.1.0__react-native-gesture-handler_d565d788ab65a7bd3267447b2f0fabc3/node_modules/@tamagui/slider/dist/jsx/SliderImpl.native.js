@@ -1,0 +1,142 @@
+"use strict";
+
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf,
+  __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+    for (var name in all) __defProp(target, name, {
+      get: all[name],
+      enumerable: !0
+    });
+  },
+  __copyProps = (to, from, except, desc) => {
+    if (from && typeof from == "object" || typeof from == "function") for (let key of __getOwnPropNames(from)) !__hasOwnProp.call(to, key) && key !== except && __defProp(to, key, {
+      get: () => from[key],
+      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+    });
+    return to;
+  };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+    value: mod,
+    enumerable: !0
+  }) : target, mod)),
+  __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
+    value: !0
+  }), mod);
+var SliderImpl_exports = {};
+__export(SliderImpl_exports, {
+  SliderFrame: () => SliderFrame,
+  SliderImpl: () => SliderImpl
+});
+module.exports = __toCommonJS(SliderImpl_exports);
+var import_jsx_runtime = require("react/jsx-runtime"),
+  import_constants = require("@tamagui/constants"),
+  import_core = require("@tamagui/core"),
+  import_get_token = require("@tamagui/get-token"),
+  import_stacks = require("@tamagui/stacks"),
+  React = __toESM(require("react"), 1),
+  import_react_native = require("react-native"),
+  import_constants2 = require("./constants.native.js");
+function _instanceof(left, right) {
+  return right != null && typeof Symbol < "u" && right[Symbol.hasInstance] ? !!right[Symbol.hasInstance](left) : left instanceof right;
+}
+var SliderFrame = (0, import_core.styled)(import_stacks.YStack, {
+    position: "relative",
+    variants: {
+      orientation: {
+        horizontal: {},
+        vertical: {}
+      },
+      size: function (val, extras) {
+        if (val) {
+          var orientation = extras.props.orientation,
+            size = Math.round((0, import_core.getVariableValue)((0, import_get_token.getSize)(val)) / 6);
+          return orientation === "horizontal" ? {
+            height: size,
+            borderRadius: size,
+            justifyContent: "center"
+          } : {
+            width: size,
+            borderRadius: size,
+            alignItems: "center"
+          };
+        }
+      }
+    }
+  }),
+  SliderImpl = /* @__PURE__ */React.forwardRef(function (props, forwardedRef) {
+    var {
+        __scopeSlider,
+        onSlideStart,
+        onSlideMove,
+        onSlideEnd,
+        onHomeKeyDown,
+        onEndKeyDown,
+        onStepKeyDown,
+        children,
+        ...sliderProps
+      } = props,
+      context = (0, import_constants2.useSliderContext)(__scopeSlider),
+      handleResponderGrant = React.useCallback(function (event) {
+        var _props_onResponderGrant;
+        (_props_onResponderGrant = props.onResponderGrant) === null || _props_onResponderGrant === void 0 || _props_onResponderGrant.call(props, event);
+        var target = event.target,
+          thumbIndex = context.thumbs.get(target),
+          isStartingOnThumb = thumbIndex !== void 0;
+        import_constants.isWeb && _instanceof(target, HTMLElement) && context.thumbs.has(target) && target.focus(), !import_constants.isWeb && isStartingOnThumb && (context.valueIndexToChangeRef.current = thumbIndex), onSlideStart(event, isStartingOnThumb ? "thumb" : "track");
+      }, [context, onSlideStart, props.onResponderGrant]),
+      handleResponderMove = React.useCallback(function (event) {
+        var _props_onResponderMove;
+        (_props_onResponderMove = props.onResponderMove) === null || _props_onResponderMove === void 0 || _props_onResponderMove.call(props, event), event.stopPropagation(), onSlideMove(event);
+      }, [onSlideMove, props.onResponderMove]),
+      handleResponderRelease = React.useCallback(function (event) {
+        var _props_onResponderRelease;
+        (_props_onResponderRelease = props.onResponderRelease) === null || _props_onResponderRelease === void 0 || _props_onResponderRelease.call(props, event), onSlideEnd(event);
+      }, [onSlideEnd, props.onResponderRelease]);
+    return (
+      // wrap with plain RN View for responder events - tamagui views no longer handle responder events on web
+      /* @__PURE__ */
+      (0, import_jsx_runtime.jsx)(SliderFrame, {
+        size: "$4",
+        ref: forwardedRef,
+        ...sliderProps,
+        "data-orientation": sliderProps.orientation,
+        ...(import_constants.isWeb && {
+          onKeyDown: function (event) {
+            event.key === "Home" ? (onHomeKeyDown(event), event.preventDefault()) : event.key === "End" ? (onEndKeyDown(event), event.preventDefault()) : import_constants2.PAGE_KEYS.concat(import_constants2.ARROW_KEYS).includes(event.key) && (onStepKeyDown(event), event.preventDefault());
+          }
+        }),
+        children: /* @__PURE__ */(0, import_jsx_runtime.jsx)(import_react_native.View, {
+          onMoveShouldSetResponderCapture: function () {
+            return !0;
+          },
+          onMoveShouldSetResponder: function () {
+            return !0;
+          },
+          onStartShouldSetResponder: function () {
+            return !0;
+          },
+          onResponderTerminationRequest: function () {
+            return !1;
+          },
+          onResponderGrant: handleResponderGrant,
+          onResponderMove: handleResponderMove,
+          onResponderRelease: handleResponderRelease,
+          style: {
+            inset: 0,
+            position: "absolute"
+          },
+          children
+        })
+      })
+    );
+  });
+//# sourceMappingURL=SliderImpl.native.js.map

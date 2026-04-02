@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/slate.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const slate = {\n  slate1: '#111113',\n  slate2: '#18191b',\n  slate3: '#212225',\n  slate4: '#272a2d',\n  slate5: '#2e3135',\n  slate6: '#363a3f',\n  slate7: '#43484e',\n  slate8: '#5a6169',\n  slate9: '#696e77',\n  slate10: '#777b84',\n  slate11: '#b0b4ba',\n  slate12: '#edeef0',\n}\n"
+  ]
+}

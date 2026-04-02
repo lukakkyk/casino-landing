@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/pinkA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const pinkA = {\n  pinkA1: '#ff00aa03',\n  pinkA2: '#e0008008',\n  pinkA3: '#f4008c16',\n  pinkA4: '#e2008b23',\n  pinkA5: '#d1008331',\n  pinkA6: '#c0007840',\n  pinkA7: '#b6006f53',\n  pinkA8: '#af006f6c',\n  pinkA9: '#c8007fbf',\n  pinkA10: '#c2007ac7',\n  pinkA11: '#b60074d6',\n  pinkA12: '#59003bed',\n}\n"
+  ]
+}

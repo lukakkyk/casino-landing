@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/mauveA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const mauveA = {\n  mauveA1: '#55005503',\n  mauveA2: '#2b005506',\n  mauveA3: '#30004010',\n  mauveA4: '#20003618',\n  mauveA5: '#20003820',\n  mauveA6: '#14003527',\n  mauveA7: '#10003332',\n  mauveA8: '#08003145',\n  mauveA9: '#05001d73',\n  mauveA10: '#0500197d',\n  mauveA11: '#0400119c',\n  mauveA12: '#020008e0',\n}\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,KAAK",
+  "names": [],
+  "sources": [
+    "src/icons/Fan.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const Fan: IconComponent = themed(\n  memo(function Fan(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path\n          d=\"M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z\"\n          stroke={color}\n        />\n        <Path d=\"M12 12v.01\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

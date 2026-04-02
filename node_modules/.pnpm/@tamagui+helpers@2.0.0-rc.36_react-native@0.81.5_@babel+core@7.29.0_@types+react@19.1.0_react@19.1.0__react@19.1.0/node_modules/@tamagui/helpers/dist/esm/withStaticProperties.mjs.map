@@ -1,0 +1,1 @@
+{"version":3,"names":["Decorated","Symbol","withStaticProperties","component","staticProps","Object","assign"],"sources":["../../src/withStaticProperties.tsx"],"sourcesContent":[null],"mappings":"AAAA,MAAMA,SAAA,GAAY,eAAAC,MAAA,CAAO;EAIZC,oBAAA,GAAuBA,CAClCC,SAAA,EACAC,WAAA,MAGAC,MAAA,CAAOC,MAAA,CAAOH,SAAA,EAAWC,WAAW,GACpCD,SAAA,CAAUH,SAAS,IAAI,IAEhBG,SAAA","ignoreList":[]}

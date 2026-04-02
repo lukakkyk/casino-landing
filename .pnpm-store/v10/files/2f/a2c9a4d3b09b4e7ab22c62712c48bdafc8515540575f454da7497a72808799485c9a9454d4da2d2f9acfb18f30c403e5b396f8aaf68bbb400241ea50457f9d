@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,UAAU",
+  "names": [],
+  "sources": [
+    "src/icons/Popsicle.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const Popsicle: IconComponent = themed(\n  memo(function Popsicle(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path\n          d=\"M18.6 14.4c.8-.8.8-2 0-2.8l-8.1-8.1a4.95 4.95 0 1 0-7.1 7.1l8.1 8.1c.9.7 2.1.7 2.9-.1Z\"\n          stroke={color}\n        />\n        <Path d=\"m22 22-5.5-5.5\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

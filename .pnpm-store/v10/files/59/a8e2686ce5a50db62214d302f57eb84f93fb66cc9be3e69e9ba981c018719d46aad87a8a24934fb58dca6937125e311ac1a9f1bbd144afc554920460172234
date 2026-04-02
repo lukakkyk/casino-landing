@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,cAAc",
+  "names": [],
+  "sources": [
+    "src/icons/MountainSnow.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const MountainSnow: IconComponent = themed(\n  memo(function MountainSnow(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path d=\"m8 3 4 8 5-5 5 15H2L8 3z\" stroke={color} />\n        <Path\n          d=\"M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19\"\n          stroke={color}\n        />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

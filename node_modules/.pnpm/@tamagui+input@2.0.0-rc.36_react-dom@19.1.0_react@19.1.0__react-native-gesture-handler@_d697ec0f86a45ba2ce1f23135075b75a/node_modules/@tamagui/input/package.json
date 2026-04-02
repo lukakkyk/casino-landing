@@ -1,0 +1,65 @@
+{
+  "name": "@tamagui/input",
+  "version": "2.0.0-rc.36",
+  "gitHead": "a49cc7ea6b93ba384e77a4880ae48ac4a5635c14",
+  "source": "src/index.ts",
+  "files": [
+    "src",
+    "types",
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "dist/cjs",
+  "module": "dist/esm",
+  "types": "./types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./types/index.d.ts",
+      "react-native": "./dist/esm/index.native.js",
+      "browser": "./dist/esm/index.mjs",
+      "module": "./dist/esm/index.mjs",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tamagui-build",
+    "watch": "tamagui-build --watch",
+    "clean": "tamagui-build clean",
+    "clean:build": "tamagui-build clean:build",
+    "test:web": "vitest --typecheck --run"
+  },
+  "dependencies": {
+    "@tamagui/core": "2.0.0-rc.36",
+    "@tamagui/element": "2.0.0-rc.36",
+    "@tamagui/focusable": "2.0.0-rc.36",
+    "@tamagui/get-button-sized": "2.0.0-rc.36",
+    "@tamagui/get-font-sized": "2.0.0-rc.36",
+    "@tamagui/get-token": "2.0.0-rc.36",
+    "@tamagui/helpers": "2.0.0-rc.36",
+    "@tamagui/helpers-tamagui": "2.0.0-rc.36",
+    "@tamagui/stacks": "2.0.0-rc.36",
+    "@tamagui/text": "2.0.0-rc.36",
+    "@tamagui/font-size": "2.0.0-rc.36",
+    "@tamagui/web": "2.0.0-rc.36"
+  },
+  "devDependencies": {
+    "@tamagui/build": "2.0.0-rc.36",
+    "react": ">=19",
+    "react-native": "0.83.2",
+    "vitest": "4.0.4"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-native": "*"
+  },
+  "module:jsx": "dist/jsx"
+}

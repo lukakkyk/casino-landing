@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,aAAa",
+  "names": [],
+  "sources": [
+    "src/icons/Paintbrush2.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const Paintbrush2: IconComponent = themed(\n  memo(function Paintbrush2(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path\n          d=\"M14 19.9V16h3a2 2 0 0 0 2-2v-2H5v2c0 1.1.9 2 2 2h3v3.9a2 2 0 1 0 4 0Z\"\n          stroke={color}\n        />\n        <Path d=\"M6 12V2h12v10\" stroke={color} />\n        <Path d=\"M14 2v4\" stroke={color} />\n        <Path d=\"M10 2v2\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

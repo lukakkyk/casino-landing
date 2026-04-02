@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/olive.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const olive = {\n  olive1: '#fcfdfc',\n  olive2: '#f8faf8',\n  olive3: '#eff1ef',\n  olive4: '#e7e9e7',\n  olive5: '#dfe2df',\n  olive6: '#d7dad7',\n  olive7: '#cccfcc',\n  olive8: '#b9bcb8',\n  olive9: '#898e87',\n  olive10: '#7f847d',\n  olive11: '#60655f',\n  olive12: '#1d211c',\n}\n"
+  ]
+}

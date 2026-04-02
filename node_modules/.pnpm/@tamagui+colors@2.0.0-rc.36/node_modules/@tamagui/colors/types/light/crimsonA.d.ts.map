@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/crimsonA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const crimsonA = {\n  crimsonA1: '#ff005503',\n  crimsonA2: '#e0004008',\n  crimsonA3: '#ff005216',\n  crimsonA4: '#f8005123',\n  crimsonA5: '#e5004f31',\n  crimsonA6: '#d0004b41',\n  crimsonA7: '#bf004753',\n  crimsonA8: '#b6004a6c',\n  crimsonA9: '#e2005bc2',\n  crimsonA10: '#d70056cb',\n  crimsonA11: '#c4004fe2',\n  crimsonA12: '#530026e9',\n}\n"
+  ]
+}

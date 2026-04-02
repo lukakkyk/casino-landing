@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,gBAAgB",
+  "names": [],
+  "sources": [
+    "src/icons/UnfoldVertical.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const UnfoldVertical: IconComponent = themed(\n  memo(function UnfoldVertical(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path d=\"M12 22v-6\" stroke={color} />\n        <Path d=\"M12 8V2\" stroke={color} />\n        <Path d=\"M4 12H2\" stroke={color} />\n        <Path d=\"M10 12H8\" stroke={color} />\n        <Path d=\"M16 12h-2\" stroke={color} />\n        <Path d=\"M22 12h-2\" stroke={color} />\n        <Path d=\"m15 19-3 3-3-3\" stroke={color} />\n        <Path d=\"m15 5-3-3-3 3\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

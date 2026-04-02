@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/green.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const green = {\n  green1: '#fbfefc',\n  green2: '#f4fbf6',\n  green3: '#e6f6eb',\n  green4: '#d6f1df',\n  green5: '#c4e8d1',\n  green6: '#adddc0',\n  green7: '#8eceaa',\n  green8: '#5bb98b',\n  green9: '#30a46c',\n  green10: '#2b9a66',\n  green11: '#218358',\n  green12: '#193b2d',\n}\n"
+  ]
+}

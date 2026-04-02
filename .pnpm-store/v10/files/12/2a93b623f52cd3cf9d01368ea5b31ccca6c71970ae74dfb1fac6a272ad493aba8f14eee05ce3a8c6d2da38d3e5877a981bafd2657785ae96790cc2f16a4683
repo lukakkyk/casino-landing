@@ -1,0 +1,1 @@
+{"version":3,"file":"createNativeToast.d.ts","sourceRoot":"","sources":["../src/createNativeToast.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,oBAAoB,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAA;AAEvE,eAAO,MAAM,iBAAiB,EAAE,oBAkB/B,CAAA;AAED,eAAO,MAAM,eAAe,EAAE,kBAQ7B,CAAA;AAED;;;GAGG;AACH,wBAAsB,6BAA6B,IAAI,OAAO,CAAC,sBAAsB,GAAG,IAAI,CAAC,CAK5F"}

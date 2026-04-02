@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,cAAc;AACd,cAAc;AACd,cAAc",
+  "names": [],
+  "sources": [
+    "src/index.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export * from './readTamaguiOptions'\nexport * from './getTamaguiDefaultPath'\nexport * from './getTamaguiOptions'\n"
+  ]
+}

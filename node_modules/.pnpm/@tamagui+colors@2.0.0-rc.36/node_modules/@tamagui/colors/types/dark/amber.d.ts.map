@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/amber.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const amber = {\n  amber1: '#16120c',\n  amber2: '#1d180f',\n  amber3: '#302008',\n  amber4: '#3f2700',\n  amber5: '#4d3000',\n  amber6: '#5c3d05',\n  amber7: '#714f19',\n  amber8: '#8f6424',\n  amber9: '#ffc53d',\n  amber10: '#ffd60a',\n  amber11: '#ffca16',\n  amber12: '#ffe7b3',\n}\n"
+  ]
+}

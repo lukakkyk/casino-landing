@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/blueA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const blueA = {\n  blueA1: '#004df211',\n  blueA2: '#1166fb18',\n  blueA3: '#0077ff3a',\n  blueA4: '#0075ff57',\n  blueA5: '#0081fd6b',\n  blueA6: '#0f89fd7f',\n  blueA7: '#2a91fe98',\n  blueA8: '#3094feb9',\n  blueA9: '#0090ff',\n  blueA10: '#3b9eff',\n  blueA11: '#70b8ff',\n  blueA12: '#c2e6ff',\n}\n"
+  ]
+}

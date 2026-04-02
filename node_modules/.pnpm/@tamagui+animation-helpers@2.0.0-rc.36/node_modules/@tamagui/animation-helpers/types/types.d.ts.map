@@ -1,0 +1,11 @@
+{
+  "mappings": ";;;;AAIA,YAAY,kBAAkB;CAC5B;;;;;;;;;;;;;;AAeF,YAAY;;;;;AAMZ,YAAY,eAAe;CACzB;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;;;;;;AAOF,YAAY,uBAAuB;;CAEjC;;CAEA;;CAEA;;CAEA;;CAEA,YAAY,wBAAwB;;CAEpC,SAAS",
+  "names": [],
+  "sources": [
+    "src/types.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "/**\n * Animation configuration that can include additional properties\n * like delay, duration, stiffness, damping, etc.\n */\nexport type AnimationConfig = {\n  type?: string\n  [key: string]: any\n}\n\n/**\n * Input format for the transition prop - supports multiple syntaxes:\n *\n * 1. String: \"bouncy\"\n * 2. Object with property mappings: { x: 'quick', y: 'bouncy', default: 'slow' }\n * 3. Array with config: ['bouncy', { delay: 100, x: 'quick' }]\n * 4. Object with enter/exit: { enter: 'bouncy', exit: 'quick', default: 'slow' }\n *\n * Note: Uses `any` to be compatible with the TransitionProp type from @tamagui/web\n * which has more complex union types.\n */\nexport type TransitionPropInput = any\n\n/**\n * Spring configuration parameters that can override preset defaults.\n * These are the common parameters across animation drivers.\n */\nexport type SpringConfig = {\n  stiffness?: number\n  damping?: number\n  mass?: number\n  tension?: number\n  friction?: number\n  velocity?: number\n  overshootClamping?: boolean\n  duration?: number\n  bounciness?: number\n  speed?: number\n}\n\n/**\n * Normalized output format that all animation drivers consume.\n * Provides a consistent structure regardless of input format.\n */\nexport type NormalizedTransition = {\n  /** Default animation key for properties not explicitly listed */\n  default: string | null\n  /** Animation key to use during enter transitions (mount) */\n  enter: string | null\n  /** Animation key to use during exit transitions (unmount) */\n  exit: string | null\n  /** Global delay in ms */\n  delay: number | undefined\n  /** Per-property animation configs: propertyName -> animationKey or config */\n  properties: Record<string, string | AnimationConfig>\n  /** Global spring config overrides that merge with the preset defaults */\n  config?: SpringConfig\n}\n"
+  ]
+}

@@ -1,0 +1,1 @@
+{"version":3,"names":["useNativeRef","getWebElement","Error"],"sources":["../../src/index.native.ts"],"sourcesContent":[null],"mappings":"AAAA,cAAc;AACd,cAAc;AAEd,SAAyBA,YAAA,QAAiB;AACnC,SAASC,cAAA,EAAgB;EAC5B,MAAM,IAAIC,KAAA,CAAM,wCAAwC;AAC5D","ignoreList":[]}

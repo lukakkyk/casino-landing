@@ -1,0 +1,1 @@
+{"version":3,"names":["getWebElement","element","Error","HTMLElement"],"sources":["../../src/getWebElement.ts"],"sourcesContent":[null],"mappings":"AAYO,SAASA,cACdC,OAAA,EACG;EACH,IAAI,CAACA,OAAA,EACH,MAAM,IAAIC,KAAA,CAAM,8BAA8B;EAEhD,IAAI,EAAED,OAAA,YAAmBE,WAAA,GACvB,MAAM,IAAID,KAAA,CAAM,+BAA+B;EAEjD,OAAOD,OAAA;AACT","ignoreList":[]}

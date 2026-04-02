@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,SAAS,0BAA0B",
+  "names": [],
+  "sources": [
+    "src/index.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export { useKeyboardVisible } from './useKeyboardVisible'\n"
+  ]
+}

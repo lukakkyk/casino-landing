@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/lime.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const lime = {\n  lime1: '#11130c',\n  lime2: '#151a10',\n  lime3: '#1f2917',\n  lime4: '#29371d',\n  lime5: '#334423',\n  lime6: '#3d522a',\n  lime7: '#496231',\n  lime8: '#577538',\n  lime9: '#bdee63',\n  lime10: '#d4ff70',\n  lime11: '#bde56c',\n  lime12: '#e3f7ba',\n}\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,iBAAiB",
+  "names": [],
+  "sources": [
+    "src/icons/LayoutDashboard.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const LayoutDashboard: IconComponent = themed(\n  memo(function LayoutDashboard(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" stroke={color} />\n        <Rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" stroke={color} />\n        <Rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" stroke={color} />\n        <Rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

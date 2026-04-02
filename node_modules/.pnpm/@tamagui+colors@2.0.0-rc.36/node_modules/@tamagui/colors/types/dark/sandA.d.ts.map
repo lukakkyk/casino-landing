@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/sandA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const sandA = {\n  sandA1: '#00000000',\n  sandA2: '#f4f4f309',\n  sandA3: '#f6f6f513',\n  sandA4: '#fefef31b',\n  sandA5: '#fbfbeb23',\n  sandA6: '#fffaed2d',\n  sandA7: '#fffbed3c',\n  sandA8: '#fff9eb57',\n  sandA9: '#fffae965',\n  sandA10: '#fffdee73',\n  sandA11: '#fffcf4b0',\n  sandA12: '#fffffded',\n}\n"
+  ]
+}

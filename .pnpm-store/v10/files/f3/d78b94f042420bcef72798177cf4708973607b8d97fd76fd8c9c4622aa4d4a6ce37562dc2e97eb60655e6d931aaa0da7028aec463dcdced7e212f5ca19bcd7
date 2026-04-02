@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/violet.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const violet = {\n  violet1: '#fdfcfe',\n  violet2: '#faf8ff',\n  violet3: '#f4f0fe',\n  violet4: '#ebe4ff',\n  violet5: '#e1d9ff',\n  violet6: '#d4cafe',\n  violet7: '#c2b5f5',\n  violet8: '#aa99ec',\n  violet9: '#6e56cf',\n  violet10: '#654dc4',\n  violet11: '#6550b9',\n  violet12: '#2f265f',\n}\n"
+  ]
+}

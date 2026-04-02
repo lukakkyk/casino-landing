@@ -1,0 +1,21 @@
+import { isWeb } from "@tamagui/constants";
+import { Portal } from "@tamagui/portal";
+import { ReprogapateToastProvider } from "./ToastProvider.mjs";
+import { jsx } from "react/jsx-runtime";
+function ToastPortal(props) {
+  const {
+    context,
+    children,
+    zIndex
+  } = props;
+  let content = children;
+  return isWeb || (content = /* @__PURE__ */jsx(ReprogapateToastProvider, {
+    context,
+    children
+  })), /* @__PURE__ */jsx(Portal, {
+    zIndex: zIndex || Number.MAX_SAFE_INTEGER,
+    children: content
+  });
+}
+export { ToastPortal };
+//# sourceMappingURL=ToastPortal.mjs.map

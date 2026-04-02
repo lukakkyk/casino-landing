@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/bronzeA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const bronzeA = {\n  bronzeA1: '#55000003',\n  bronzeA2: '#cc550009',\n  bronzeA3: '#92360011',\n  bronzeA4: '#8024001b',\n  bronzeA5: '#7324002a',\n  bronzeA6: '#6b230039',\n  bronzeA7: '#642a004f',\n  bronzeA8: '#5f2a006b',\n  bronzeA9: '#54210090',\n  bronzeA10: '#4d1f0096',\n  bronzeA11: '#431b00a6',\n  bronzeA12: '#1d0600d4',\n}\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/pink.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const pink = {\n  pink1: '#191117',\n  pink2: '#21121d',\n  pink3: '#37172f',\n  pink4: '#4b143d',\n  pink5: '#591c47',\n  pink6: '#692955',\n  pink7: '#833869',\n  pink8: '#a84885',\n  pink9: '#d6409f',\n  pink10: '#de51a8',\n  pink11: '#ff8dcc',\n  pink12: '#fdd1ea',\n}\n"
+  ]
+}

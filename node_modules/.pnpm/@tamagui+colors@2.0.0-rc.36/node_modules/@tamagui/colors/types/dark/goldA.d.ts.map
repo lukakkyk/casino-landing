@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/goldA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const goldA = {\n  goldA1: '#91911102',\n  goldA2: '#f9e29d0b',\n  goldA3: '#f8ecbb15',\n  goldA4: '#ffeec41e',\n  goldA5: '#feecc22a',\n  goldA6: '#feebcb37',\n  goldA7: '#ffedcd48',\n  goldA8: '#fdeaca5f',\n  goldA9: '#ffdba690',\n  goldA10: '#fedfb09d',\n  goldA11: '#fee7c6c8',\n  goldA12: '#fef7ede7',\n}\n"
+  ]
+}

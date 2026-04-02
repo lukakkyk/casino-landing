@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/red.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const red = {\n  red1: '#fffcfc',\n  red2: '#fff7f7',\n  red3: '#feebec',\n  red4: '#ffdbdc',\n  red5: '#ffcdce',\n  red6: '#fdbdbe',\n  red7: '#f4a9aa',\n  red8: '#eb8e90',\n  red9: '#e5484d',\n  red10: '#dc3e42',\n  red11: '#ce2c31',\n  red12: '#641723',\n}\n"
+  ]
+}

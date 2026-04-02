@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/amber.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const amber = {\n  amber1: '#fefdfb',\n  amber2: '#fefbe9',\n  amber3: '#fff7c2',\n  amber4: '#ffee9c',\n  amber5: '#fbe577',\n  amber6: '#f3d673',\n  amber7: '#e9c162',\n  amber8: '#e2a336',\n  amber9: '#ffc53d',\n  amber10: '#ffba18',\n  amber11: '#ab6400',\n  amber12: '#4f3422',\n}\n"
+  ]
+}

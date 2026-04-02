@@ -1,0 +1,1 @@
+{"version":3,"names":["Toast","useToasts","useToastItem","toast","Toaster","requestNotificationPermission"],"sources":["../../src/v2.ts"],"sourcesContent":[null],"mappings":"AACA,SAASA,KAAA,EAAOC,SAAA,EAAWC,YAAA,QAAoB;AAY/C,SAASC,KAAA,QAAa;AAYtB,SAASC,OAAA,QAAe;AAKxB,SAASC,6BAAA,QAAqC","ignoreList":[]}

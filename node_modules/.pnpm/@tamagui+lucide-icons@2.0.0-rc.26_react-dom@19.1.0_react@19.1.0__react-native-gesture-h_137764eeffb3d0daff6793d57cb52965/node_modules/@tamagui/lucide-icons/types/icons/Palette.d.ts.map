@@ -1,0 +1,11 @@
+{
+  "mappings": "AAIA,cAAc,iBAAiB;KAqB1B,iBAAiB,SAAS,cAAc,IAAI;AAEjD,OAAO,cAAM,SAAS",
+  "names": [],
+  "sources": [
+    "src/icons/Palette.tsx"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// @ts-nocheck\nimport React, { memo } from 'react'\nimport PropTypes from 'prop-types'\nimport type { NamedExoticComponent } from 'react'\nimport type { IconProps } from '@tamagui/helpers-icon'\nimport {\n  Svg,\n  Circle as _Circle,\n  Ellipse,\n  G,\n  LinearGradient,\n  RadialGradient,\n  Line,\n  Path,\n  Polygon,\n  Polyline,\n  Rect,\n  Symbol,\n  Text as _Text,\n  Use,\n  Defs,\n  Stop,\n} from 'react-native-svg'\nimport { themed } from '@tamagui/helpers-icon'\n\ntype IconComponent = (propsIn: IconProps) => JSX.Element\n\nexport const Palette: IconComponent = themed(\n  memo(function Palette(props: IconProps) {\n    const { color = 'black', size = 24, ...otherProps } = props\n    return (\n      <Svg\n        width={size}\n        height={size}\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke={color}\n        strokeWidth=\"2\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        {...otherProps}\n      >\n        <Path\n          d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\"\n          stroke={color}\n        />\n        <_Circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\" stroke={color} />\n        <_Circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\" stroke={color} />\n        <_Circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\" stroke={color} />\n        <_Circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" stroke={color} />\n      </Svg>\n    )\n  })\n)\n"
+  ]
+}

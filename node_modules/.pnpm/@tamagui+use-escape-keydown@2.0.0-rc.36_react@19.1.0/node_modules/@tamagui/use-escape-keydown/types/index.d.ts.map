@@ -1,0 +1,11 @@
+{
+  "mappings": "AAEA,OAAO,WAAW;;;;AAKlB,OAAO,iBAAS,iBACd,sBAAsB,MAAM,sBAC5B,gBAAe",
+  "names": [],
+  "sources": [
+    "src/index.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "// via radix-ui\nimport { useCallbackRef } from '@tamagui/use-callback-ref'\nimport React from 'react'\n\n/**\n * Listens for when the escape key is down\n */\nexport function useEscapeKeydown(\n  onEscapeKeyDownProp?: React.KeyboardEventHandler,\n  ownerDocument: Document = globalThis?.document\n): void {\n  const onEscapeKeyDown = useCallbackRef(onEscapeKeyDownProp)\n\n  React.useEffect(() => {\n    const handleKeyDown = (event: React.KeyboardEvent) => {\n      if (event.key === 'Escape') {\n        onEscapeKeyDown(event)\n      }\n    }\n\n    ownerDocument.addEventListener(\n      'keydown',\n      // @ts-expect-error\n      handleKeyDown\n    )\n\n    return () => {\n      ownerDocument.removeEventListener(\n        'keydown',\n        // @ts-expect-error\n        handleKeyDown\n      )\n    }\n  }, [onEscapeKeyDown, ownerDocument])\n}\n"
+  ]
+}

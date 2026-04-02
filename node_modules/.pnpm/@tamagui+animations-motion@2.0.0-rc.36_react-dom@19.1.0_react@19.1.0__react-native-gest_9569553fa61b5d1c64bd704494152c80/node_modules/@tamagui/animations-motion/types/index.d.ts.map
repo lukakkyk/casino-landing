@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO;AAEP,cAAc",
+  "names": [],
+  "sources": [
+    "src/index.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "import './polyfill'\n\nexport * from './createAnimations'\n"
+  ]
+}

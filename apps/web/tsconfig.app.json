@@ -22,7 +22,13 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@casino/config": ["../../packages/config/src"],
+      "@casino/shared-ui": ["../../packages/shared-ui/src"]
+    }
   },
   "include": ["src"]
 }

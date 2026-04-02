@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/mint.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const mint = {\n  mint1: '#0e1515',\n  mint2: '#0f1b1b',\n  mint3: '#092c2b',\n  mint4: '#003a38',\n  mint5: '#004744',\n  mint6: '#105650',\n  mint7: '#1e685f',\n  mint8: '#277f70',\n  mint9: '#86ead4',\n  mint10: '#a8f5e5',\n  mint11: '#58d5ba',\n  mint12: '#c4f5e1',\n}\n"
+  ]
+}

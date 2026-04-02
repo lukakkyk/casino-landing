@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,cAAc,kBAAkB;AAIhC,OAAO,cAAM,YAAY",
+  "names": [],
+  "sources": [
+    "src/matchMedia.native.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "import type { MatchMedia } from '@tamagui/web'\n\nimport { NativeMediaQueryList } from './mediaQueryList'\n\nexport const matchMedia: MatchMedia = (query) => {\n  return new NativeMediaQueryList(query)\n}\n"
+  ]
+}

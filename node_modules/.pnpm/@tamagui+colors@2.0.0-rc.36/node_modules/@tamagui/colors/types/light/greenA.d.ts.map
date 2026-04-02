@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/greenA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const greenA = {\n  greenA1: '#00c04004',\n  greenA2: '#00c03e0d',\n  greenA3: '#00b83a16',\n  greenA4: '#019c3522',\n  greenA5: '#00963433',\n  greenA6: '#008f304b',\n  greenA7: '#00872e6d',\n  greenA8: '#009437a4',\n  greenA9: '#008f2fcf',\n  greenA10: '#00832bd6',\n  greenA11: '#006b23e6',\n  greenA12: '#002616e6',\n}\n"
+  ]
+}

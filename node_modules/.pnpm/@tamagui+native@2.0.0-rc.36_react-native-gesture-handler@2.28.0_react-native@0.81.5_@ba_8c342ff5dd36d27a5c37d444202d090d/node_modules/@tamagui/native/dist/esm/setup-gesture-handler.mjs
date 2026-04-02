@@ -1,0 +1,28 @@
+import { getGestureHandler } from "./gestureState.mjs";
+function setup() {
+  const g = globalThis;
+  if (!g.__tamagui_native_gesture_setup_complete) {
+    g.__tamagui_native_gesture_setup_complete = !0;
+    try {
+      const rngh = require("react-native-gesture-handler"),
+        {
+          Gesture,
+          GestureDetector,
+          ScrollView
+        } = rngh;
+      Gesture && GestureDetector && (getGestureHandler().set({
+        enabled: !0,
+        Gesture,
+        GestureDetector,
+        ScrollView: ScrollView || null
+      }), g.__tamagui_sheet_gesture_state__ = {
+        enabled: !0,
+        Gesture,
+        GestureDetector,
+        ScrollView: ScrollView || null
+      });
+    } catch {}
+  }
+}
+setup();
+//# sourceMappingURL=setup-gesture-handler.mjs.map

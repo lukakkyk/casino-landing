@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/tealA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const tealA = {\n  tealA1: '#00cc9905',\n  tealA2: '#00c9920e',\n  tealA3: '#00c09518',\n  tealA4: '#00b49026',\n  tealA5: '#00a58638',\n  tealA6: '#009a7d4f',\n  tealA7: '#00907572',\n  tealA8: '#009783ad',\n  tealA9: '#009e8ced',\n  tealA10: '#00907ff1',\n  tealA11: '#00756af8',\n  tealA12: '#00332df2',\n}\n"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": "",
+  "names": [],
+  "sources": [
+    "src/setup-gesture-handler.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "/**\n * Setup gesture handler for Tamagui native components.\n *\n * Simply import this module at the top of your app entry point:\n *\n * @example\n * ```tsx\n * import '@tamagui/native/setup-gesture-handler'\n * ```\n *\n * This automatically detects and configures react-native-gesture-handler\n * for use with Sheet and other gesture-aware components.\n */\n\nimport { getGestureHandler } from './gestureState'\n\nfunction setup() {\n  const g = globalThis as any\n  if (g.__tamagui_native_gesture_setup_complete) {\n    return\n  }\n  g.__tamagui_native_gesture_setup_complete = true\n\n  try {\n    // dynamically require RNGH - it should already be imported by the app\n    const rngh = require('react-native-gesture-handler')\n    const { Gesture, GestureDetector, ScrollView } = rngh\n\n    if (Gesture && GestureDetector) {\n      getGestureHandler().set({\n        enabled: true,\n        Gesture,\n        GestureDetector,\n        ScrollView: ScrollView || null,\n      })\n\n      // also set on the legacy key for backward compat with @tamagui/sheet\n      g.__tamagui_sheet_gesture_state__ = {\n        enabled: true,\n        Gesture,\n        GestureDetector,\n        ScrollView: ScrollView || null,\n      }\n    }\n  } catch {\n    // RNGH not available, that's fine\n  }\n}\n\n// run setup immediately on import\nsetup()\n"
+  ]
+}

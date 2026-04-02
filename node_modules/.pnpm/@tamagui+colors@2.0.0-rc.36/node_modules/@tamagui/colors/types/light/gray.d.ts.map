@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/gray.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const gray = {\n  gray1: '#fcfcfc',\n  gray2: '#f9f9f9',\n  gray3: '#f0f0f0',\n  gray4: '#e8e8e8',\n  gray5: '#e0e0e0',\n  gray6: '#d9d9d9',\n  gray7: '#cecece',\n  gray8: '#bbbbbb',\n  gray9: '#8d8d8d',\n  gray10: '#838383',\n  gray11: '#646464',\n  gray12: '#202020',\n}\n"
+  ]
+}

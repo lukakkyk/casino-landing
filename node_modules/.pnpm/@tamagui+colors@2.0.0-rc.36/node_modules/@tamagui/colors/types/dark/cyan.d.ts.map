@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/cyan.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const cyan = {\n  cyan1: '#0b161a',\n  cyan2: '#101b20',\n  cyan3: '#082c36',\n  cyan4: '#003848',\n  cyan5: '#004558',\n  cyan6: '#045468',\n  cyan7: '#12677e',\n  cyan8: '#11809c',\n  cyan9: '#00a2c7',\n  cyan10: '#23afd0',\n  cyan11: '#4ccce6',\n  cyan12: '#b6ecf7',\n}\n"
+  ]
+}

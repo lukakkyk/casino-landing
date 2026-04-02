@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/tomatoA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const tomatoA = {\n  tomatoA1: '#f1121208',\n  tomatoA2: '#ff55330f',\n  tomatoA3: '#ff35232b',\n  tomatoA4: '#fd201142',\n  tomatoA5: '#fe332153',\n  tomatoA6: '#ff4f3864',\n  tomatoA7: '#fd644a7d',\n  tomatoA8: '#fe6d4ea7',\n  tomatoA9: '#fe5431e4',\n  tomatoA10: '#ff6847eb',\n  tomatoA11: '#ff977d',\n  tomatoA12: '#ffd6cefb',\n}\n"
+  ]
+}

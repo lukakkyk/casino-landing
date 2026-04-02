@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/grassA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const grassA = {\n  grassA1: '#00c00004',\n  grassA2: '#00c0000c',\n  grassA3: '#00b70014',\n  grassA4: '#00a30020',\n  grassA5: '#009a0031',\n  grassA6: '#00900048',\n  grassA7: '#008b0068',\n  grassA8: '#00920e9a',\n  grassA9: '#008619b9',\n  grassA10: '#007b17c2',\n  grassA11: '#006514d6',\n  grassA12: '#002006e4',\n}\n"
+  ]
+}

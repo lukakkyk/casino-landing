@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/grass.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const grass = {\n  grass1: '#0e1511',\n  grass2: '#141a15',\n  grass3: '#1b2a1e',\n  grass4: '#1d3a24',\n  grass5: '#25482d',\n  grass6: '#2d5736',\n  grass7: '#366740',\n  grass8: '#3e7949',\n  grass9: '#46a758',\n  grass10: '#53b365',\n  grass11: '#71d083',\n  grass12: '#c2f0c2',\n}\n"
+  ]
+}

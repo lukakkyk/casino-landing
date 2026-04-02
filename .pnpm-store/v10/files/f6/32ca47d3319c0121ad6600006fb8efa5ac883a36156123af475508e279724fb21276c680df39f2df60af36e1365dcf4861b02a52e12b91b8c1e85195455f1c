@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/mintA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const mintA = {\n  mintA1: '#00dede05',\n  mintA2: '#00f9f90b',\n  mintA3: '#00fff61d',\n  mintA4: '#00fff42c',\n  mintA5: '#00fff23a',\n  mintA6: '#0effeb4a',\n  mintA7: '#34fde55e',\n  mintA8: '#41ffdf76',\n  mintA9: '#92ffe7e9',\n  mintA10: '#aefeedf5',\n  mintA11: '#67ffded2',\n  mintA12: '#cbfee9f5',\n}\n"
+  ]
+}

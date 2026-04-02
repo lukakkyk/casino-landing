@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,cAA+B,iBAAiB;AAGhD,OAAO,cAAM;AACb,OAAO,cAAM;AACb,OAAO,cAAM;AACb,OAAO,cAAM;;AAEb,OAAO,cAAM;AACb,OAAO,cAAM,kCAAkC;AAC/C,OAAO,cAAM;AACb,OAAO,cAAM;AACb,OAAO,cAAM;AAEb,OAAO,cAAM;AAEb,OAAO,cAAM;AAIb,OAAO,cAAM,iBAAiB,QAAQ,QAAQ,WAAW",
+  "names": [],
+  "sources": [
+    "src/constants.native.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "import { useLayoutEffect, type useEffect } from 'react'\nimport { Platform } from 'react-native'\n\nexport const isWeb: boolean = false\nexport const isBrowser: boolean = false\nexport const isServer: boolean = false\nexport const isClient: boolean = true\n/** @deprecated use isBrowser instead */\nexport const isWindowDefined: boolean = false\nexport const useIsomorphicLayoutEffect: typeof useEffect = useLayoutEffect\nexport const isChrome: boolean = false\nexport const isWebTouchable: boolean = false\nexport const isTouchable: boolean = true\n// optional chain required: babel extractor loads native.cjs in node where Platform is undefined\nexport const isAndroid: boolean =\n  Platform?.OS === 'android' || process.env.TEST_NATIVE_PLATFORM === 'android'\nexport const isIos: boolean =\n  Platform?.OS === 'ios' || process.env.TEST_NATIVE_PLATFORM === 'ios'\n\nconst platforms = { ios: 'ios', android: 'android' } as const\nexport const currentPlatform: 'web' | 'ios' | 'native' | 'android' =\n  (Platform?.OS ? platforms[Platform.OS] : undefined) || 'native'\n"
+  ]
+}

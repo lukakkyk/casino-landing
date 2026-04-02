@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/sky.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const sky = {\n  sky1: '#f9feff',\n  sky2: '#f1fafd',\n  sky3: '#e1f6fd',\n  sky4: '#d1f0fa',\n  sky5: '#bee7f5',\n  sky6: '#a9daed',\n  sky7: '#8dcae3',\n  sky8: '#60b3d7',\n  sky9: '#7ce2fe',\n  sky10: '#74daf8',\n  sky11: '#00749e',\n  sky12: '#1d3e56',\n}\n"
+  ]
+}

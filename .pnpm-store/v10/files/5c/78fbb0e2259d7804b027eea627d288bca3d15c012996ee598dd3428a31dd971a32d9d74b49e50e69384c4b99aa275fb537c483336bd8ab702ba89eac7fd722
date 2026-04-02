@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/blue.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const blue = {\n  blue1: '#0d1520',\n  blue2: '#111927',\n  blue3: '#0d2847',\n  blue4: '#003362',\n  blue5: '#004074',\n  blue6: '#104d87',\n  blue7: '#205d9e',\n  blue8: '#2870bd',\n  blue9: '#0090ff',\n  blue10: '#3b9eff',\n  blue11: '#70b8ff',\n  blue12: '#c2e6ff',\n}\n"
+  ]
+}

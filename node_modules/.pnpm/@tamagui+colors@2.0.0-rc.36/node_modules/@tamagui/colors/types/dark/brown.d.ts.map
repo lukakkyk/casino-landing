@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/brown.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const brown = {\n  brown1: '#12110f',\n  brown2: '#1c1816',\n  brown3: '#28211d',\n  brown4: '#322922',\n  brown5: '#3e3128',\n  brown6: '#4d3c2f',\n  brown7: '#614a39',\n  brown8: '#7c5f46',\n  brown9: '#ad7f58',\n  brown10: '#b88c67',\n  brown11: '#dbb594',\n  brown12: '#f2e1ca',\n}\n"
+  ]
+}

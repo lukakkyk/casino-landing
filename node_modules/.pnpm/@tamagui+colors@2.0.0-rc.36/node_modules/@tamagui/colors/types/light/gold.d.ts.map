@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/gold.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const gold = {\n  gold1: '#fdfdfc',\n  gold2: '#faf9f2',\n  gold3: '#f2f0e7',\n  gold4: '#eae6db',\n  gold5: '#e1dccf',\n  gold6: '#d8d0bf',\n  gold7: '#cbc0aa',\n  gold8: '#b9a88d',\n  gold9: '#978365',\n  gold10: '#8c7a5e',\n  gold11: '#71624b',\n  gold12: '#3b352b',\n}\n"
+  ]
+}

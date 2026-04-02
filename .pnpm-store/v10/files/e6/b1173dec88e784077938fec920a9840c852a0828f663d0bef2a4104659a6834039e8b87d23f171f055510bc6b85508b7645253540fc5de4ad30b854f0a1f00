@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/sageA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const sageA = {\n  sageA1: '#00804004',\n  sageA2: '#00402008',\n  sageA3: '#002d1e11',\n  sageA4: '#001f1519',\n  sageA5: '#00180820',\n  sageA6: '#00140d28',\n  sageA7: '#00140a34',\n  sageA8: '#000f0847',\n  sageA9: '#00110b79',\n  sageA10: '#00100a83',\n  sageA11: '#000a07a0',\n  sageA12: '#000805e5',\n}\n"
+  ]
+}

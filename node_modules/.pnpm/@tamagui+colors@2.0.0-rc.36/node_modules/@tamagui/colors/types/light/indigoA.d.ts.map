@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/light/indigoA.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const indigoA = {\n  indigoA1: '#00008002',\n  indigoA2: '#0040ff08',\n  indigoA3: '#0047f112',\n  indigoA4: '#0044ff1e',\n  indigoA5: '#0044ff2d',\n  indigoA6: '#003eff3e',\n  indigoA7: '#0037ed54',\n  indigoA8: '#0034dc72',\n  indigoA9: '#0031d2c1',\n  indigoA10: '#002ec9cc',\n  indigoA11: '#002bb7c5',\n  indigoA12: '#001046e0',\n}\n"
+  ]
+}

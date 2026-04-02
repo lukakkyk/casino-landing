@@ -1,0 +1,11 @@
+{
+  "mappings": "AAAA,OAAO,cAAM;CACX;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA",
+  "names": [],
+  "sources": [
+    "src/dark/orange.ts"
+  ],
+  "version": 3,
+  "sourcesContent": [
+    "export const orange = {\n  orange1: '#17120e',\n  orange2: '#1e160f',\n  orange3: '#331e0b',\n  orange4: '#462100',\n  orange5: '#562800',\n  orange6: '#66350c',\n  orange7: '#7e451d',\n  orange8: '#a35829',\n  orange9: '#f76b15',\n  orange10: '#ff801f',\n  orange11: '#ffa057',\n  orange12: '#ffe0c2',\n}\n"
+  ]
+}
