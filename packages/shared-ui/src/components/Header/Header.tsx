@@ -1,237 +1,258 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Bell, Menu, RotateCw } from '@tamagui/lucide-icons';
-import {
-    XStack,
-    YStack,
-    Text,
-    Button,
-    Circle,
-    Spinner,
-    Separator,
-} from 'tamagui';
+import { useEffect, useRef, useState } from 'react';
+import { Platform } from 'react-native';
+import { Bell, ChevronDown, RotateCw, User } from '@tamagui/lucide-icons';
+import { Button, Circle, isWeb, Text, XStack } from 'tamagui';
 
-type HeaderProps = {
-    userName: string;
+export type HeaderProps = {
+    brandName?: string;
     balance: number;
     currency?: string;
-    onRefresh?: () => void;
-    isRefreshing?: boolean;
-    refreshError?: string | null;
-    hasNotifications?: boolean;
+    notificationCount?: number;
+    userName?: string;
     onNotificationsPress?: () => void;
-    onMenuPress?: () => void;
-    showMenu?: boolean;
+    onRefreshPress?: () => void;
+    onProfilePress?: () => void;
 };
 
-type HeaderActionButtonProps = {
-    onPress?: () => void;
-    disabled?: boolean;
-    children: React.ReactNode;
-};
 
-function HeaderActionButton({
-    onPress,
-    disabled = false,
-    children,
-}: HeaderActionButtonProps) {
-    return (
-        <Button
-            size="$md"
-            circular
-            backgroundColor="$surfaceHover"
-            borderWidth={1}
-            borderColor="$surface"
-            onPress={onPress}
-            disabled={disabled}
-            hoverStyle={{
-                backgroundColor: '$surface',
-                borderColor: '$accent',
-            }}
-            pressStyle={{
-                backgroundColor: '$surface',
-                scale: 0.96,
-            }}
-            focusStyle={{
-                borderColor: '$accent',
-            }}
-        >
-            {children}
-        </Button>
-    );
-}
 
-function getGreetingByHour() {
-    const hour = new Date().getHours();
-
-    if (hour < 12) return 'Good morning';
-    if (hour < 18) return 'Good afternoon';
-    return 'Good evening';
-}
-
-function formatBalance(value: number, currency: string) {
+function formatBalance(value: number, currency: string): string {
     return `${currency}${value.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
     })}`;
 }
 
-export function Header({
-    userName,
-    balance,
-    currency = '$',
-    onRefresh,
-    isRefreshing = false,
-    refreshError = null,
-    hasNotifications = false,
-    onNotificationsPress,
-    onMenuPress,
-    showMenu = true,
-}: HeaderProps) {
-    const safeUserName = userName?.trim() || 'User';
-    const userInitial = safeUserName.charAt(0).toUpperCase() || 'U';
-    const greeting = useMemo(() => getGreetingByHour(), []);
-
-    const [displayBalance, setDisplayBalance] = useState(balance);
-    const animatedValueRef = useRef(balance);
+function useAnimatedBalance(target: number) {
+    const [display, setDisplay] = useState(target);
+    const fromRef = useRef(target);
 
     useEffect(() => {
-        const from = animatedValueRef.current;
-        const to = balance;
+        const from = fromRef.current;
+        if (from === target) return;
 
-        if (from === to) return;
-
-        const durationMs = 500;
-        const startTs = Date.now();
+        const duration = 500;
+        const start = Date.now();
         let frameId = 0;
 
         const tick = () => {
-            const progress = Math.min((Date.now() - startTs) / durationMs, 1);
+            const progress = Math.min((Date.now() - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            const next = from + (to - from) * eased;
-
-            animatedValueRef.current = next;
-            setDisplayBalance(next);
-
-            if (progress < 1) {
-                frameId = requestAnimationFrame(tick);
-            }
+            fromRef.current = from + (target - from) * eased;
+            setDisplay(fromRef.current);
+            if (progress < 1) frameId = requestAnimationFrame(tick);
         };
 
         frameId = requestAnimationFrame(tick);
-
         return () => cancelAnimationFrame(frameId);
-    }, [balance]);
+    }, [target]);
+
+    return display;
+}
+
+
+
+const GLASS_BG = 'rgba(255,255,255,0.13)';
+const GLASS_BORDER = 'rgba(255,255,255,0.08)';
+const GLASS_HOVER_BG = 'rgba(255,255,255,0.22)';
+const TEXT_MUTED = 'rgba(255,255,255,0.65)';
+
+
+
+function BrandBlock({ brandName, isWeb }: { brandName: string; isWeb: boolean }) {
+    return (
+        <XStack alignItems="center" gap="$sm">
+            <Circle size={36} backgroundColor="$textPrimary">
+                <Text color="$secondBackground" fontSize={18} fontWeight="800">
+                    ♠
+                </Text>
+            </Circle>
+            {isWeb ? (
+                <Text color="$secondBackground" fontSize={17} fontWeight="800" letterSpacing={-0.3}>
+                    {brandName}
+                </Text>
+            ) : null}
+        </XStack>
+    );
+}
+
+function NotificationButton({
+    count,
+    onPress,
+}: {
+    count: number;
+    onPress?: () => void;
+}) {
+    const clampedCount = Math.min(count, 99);
 
     return (
-        <YStack
-            backgroundColor="$background"
-            borderRadius="$xl"
-            padding="$lg"
-            gap="$md"
+        <Button
+            size="$2xl"
+            circular
+            backgroundColor={GLASS_BG}
+            borderWidth={1}
+            borderColor={GLASS_BORDER}
+            onPress={onPress}
+            hoverStyle={{ backgroundColor: GLASS_HOVER_BG }}
+            pressStyle={{ scale: 0.95, opacity: 0.85 }}
         >
-            <XStack justifyContent="space-between" alignItems="center" gap="$md">
-                <XStack alignItems="center" gap="$md" flex={1}>
-                    <Circle
-                        size={56}
-                        backgroundColor="$textPrimary"
-                        borderWidth={1}
-                        borderColor="$textPrimary"
-                    >
-                        <Text color="$secondBackground" fontSize="$xl" fontWeight="800">
-                            {userInitial}
+            <Bell size={17} color="$secondBackground" />
+
+            {clampedCount > 0 ? (
+                <Circle
+                    size={18}
+                    backgroundColor="$danger"
+                    position="absolute"
+                    top={-8}
+                    right={-8}
+                    zIndex={10}
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <Text color="$secondBackground" fontSize={10} fontWeight="700" lineHeight={18}>
+                        {clampedCount > 9 ? '9+' : String(clampedCount)}
+                    </Text>
+                </Circle>
+            ) : null}
+        </Button>
+    );
+}
+
+function BalancePill({
+    balance,
+    currency,
+    isWeb,
+    onRefreshPress,
+}: {
+    balance: number;
+    currency: string;
+    isWeb: boolean;
+    onRefreshPress?: () => void;
+}) {
+    return (
+        <XStack
+            alignItems="center"
+            gap={6}
+            paddingHorizontal={isWeb ? 14 : 10}
+            paddingVertical={6}
+            backgroundColor={GLASS_BG}
+            borderWidth={1}
+            borderColor={GLASS_BORDER}
+            borderRadius={999}
+        >
+            <Text color="white" fontSize={isWeb ? 14 : 13} fontWeight="700">
+                {formatBalance(balance, currency)}
+            </Text>
+            <Button
+                size="$xs"
+                circular
+                backgroundColor="transparent"
+                borderWidth={0}
+                padding={2}
+                onPress={onRefreshPress}
+                hoverStyle={{ opacity: 0.7 }}
+                pressStyle={{ scale: 0.9, opacity: 0.7 }}
+            >
+                <RotateCw size={isWeb ? 18 : 13} color={TEXT_MUTED} />
+            </Button>
+        </XStack>
+    );
+}
+
+function ProfileButton({
+    userName,
+    isWeb,
+    onPress,
+}: {
+    userName?: string;
+    isWeb: boolean;
+    onPress?: () => void;
+}) {
+    if (isWeb) {
+        return (
+            <Button
+                backgroundColor={GLASS_BG}
+                borderWidth={1}
+                borderColor={GLASS_BORDER}
+                borderRadius={999}
+                paddingHorizontal={12}
+                paddingVertical={6}
+                height="auto"
+                onPress={onPress}
+                hoverStyle={{ backgroundColor: GLASS_HOVER_BG }}
+                pressStyle={{ scale: 0.95, opacity: 0.85 }}
+            >
+                <XStack alignItems="center" gap={7}>
+                    <User size={18} color="$secondBackground" />
+                    {userName ? (
+                        <Text color="$secondBackground" fontSize="$md" fontWeight="600">
+                            {userName}
                         </Text>
-                    </Circle>
-
-                    <YStack flex={1} gap={2}>
-                        <Text color="$textSecondary" fontSize="$sm">
-                            {greeting}
-                        </Text>
-
-                        <Text
-                            color="$color"
-                            fontSize="$7"
-                            fontWeight="800"
-                            numberOfLines={1}
-                        >
-                            {safeUserName}
-                        </Text>
-                    </YStack>
-                </XStack>
-
-                <XStack alignItems="center" gap="$md">
-                    <HeaderActionButton onPress={onRefresh} disabled={isRefreshing}>
-                        {isRefreshing ? (
-                            <Spinner size="small" color="$textPrimary" />
-                        ) : (
-                            <RotateCw size={18} color="$textPrimary" />
-                        )}
-                    </HeaderActionButton>
-
-                    <Button
-                        size="$md"
-                        circular
-                        backgroundColor="$surfaceHover"
-                        borderWidth={1}
-                        borderColor="$surface"
-                        position="relative"
-                        onPress={onNotificationsPress}
-                        hoverStyle={{
-                            backgroundColor: '$surface',
-                            borderColor: '$accent',
-                        }}
-                        pressStyle={{
-                            backgroundColor: '$surface',
-                            scale: 0.96,
-                        }}
-                        focusStyle={{
-                            borderColor: '$accent',
-                        }}
-                    >
-                        <Bell size={18} color="$textPrimary" />
-
-                        {hasNotifications ? (
-                            <Circle
-                                size={10}
-                                backgroundColor="$danger"
-                                position="absolute"
-                                top={8}
-                                right={8}
-                            />
-                        ) : null}
-                    </Button>
-
-                    {showMenu ? (
-                        <HeaderActionButton onPress={onMenuPress}>
-                            <Menu size={16} color="$textPrimary" />
-                        </HeaderActionButton>
                     ) : null}
+                    <ChevronDown size={18} color={TEXT_MUTED} />
                 </XStack>
+            </Button>
+        );
+    }
+
+    return (
+        <Button
+            size="$2xl"
+            circular
+            backgroundColor={GLASS_BG}
+            borderWidth={1}
+            borderColor={GLASS_BORDER}
+            onPress={onPress}
+            hoverStyle={{ backgroundColor: GLASS_HOVER_BG }}
+            pressStyle={{ scale: 0.95, opacity: 0.85 }}
+        >
+            <User size={17} color="$secondBackground" />
+        </Button>
+    );
+}
+
+
+
+export function Header({
+    brandName = 'Nuke',
+    balance,
+    currency = '$',
+    notificationCount = 0,
+    userName,
+    onNotificationsPress,
+    onRefreshPress,
+    onProfilePress,
+}: HeaderProps) {
+    const isWeb = Platform.OS === 'web';
+    const displayBalance = useAnimatedBalance(balance);
+
+    return (
+        <XStack
+            justifyContent="space-between"
+            alignItems="center"
+            paddingHorizontal={isWeb ? 32 : 16}
+            paddingVertical={isWeb ? 14 : 10}
+            backgroundColor="$background"
+        >
+            <BrandBlock brandName={brandName} isWeb={isWeb} />
+
+            <XStack alignItems="center" gap={isWeb ? 10 : 8}>
+                <NotificationButton
+                    count={notificationCount}
+                    onPress={onNotificationsPress}
+                />
+                <BalancePill
+                    balance={displayBalance}
+                    currency={currency}
+                    isWeb={isWeb}
+                    onRefreshPress={onRefreshPress}
+                />
+                <ProfileButton
+                    userName={userName}
+                    isWeb={isWeb}
+                    onPress={onProfilePress}
+                />
             </XStack>
-
-            <Separator borderColor="$surfaceHover" />
-
-            <XStack justifyContent="space-between" alignItems="flex-end" gap="$md">
-                <YStack gap={4}>
-                    <Text
-                        color="$textSecondary"
-                        fontSize="$sm"
-                        textTransform="uppercase"
-                        letterSpacing={1}
-                    >
-                        Wallet Balance
-                    </Text>
-
-                    <Text color="$accent" fontSize="$9" fontWeight="900">
-                        {formatBalance(displayBalance, currency)}
-                    </Text>
-                </YStack>
-
-                <YStack alignItems="flex-end" minHeight={18} justifyContent="flex-end">
-                    <Text color={refreshError ? '$danger' : '$textSecondary'} fontSize="$sm">
-                        {refreshError || 'Ready'}
-                    </Text>
-                </YStack>
-            </XStack>
-        </YStack>
+        </XStack>
     );
 }

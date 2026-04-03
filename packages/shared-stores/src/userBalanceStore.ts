@@ -8,9 +8,9 @@ export const useUserBalanceStore = create<UserBalanceStore>()(
     (set, get) => ({
       user: {
         id: "u_1",
-        name: "John Doe",
+        name: "Lukakkyk",
       },
-      balance: 1245.75,
+      balance: 12405.2,
       isBalanceLoading: false,
       balanceError: null,
 

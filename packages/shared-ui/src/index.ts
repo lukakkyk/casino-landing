@@ -1,4 +1,5 @@
 export { Header } from "./components/Header/Header";
+export type { HeaderProps } from "./components/Header/Header";
 export { HeroSlider } from "./components/HeroSlider/HeroSlider";
 export type { HeroSlide } from "./components/HeroSlider/heroTypes";
 export { mockHeroSlides } from "./data/mockHeroSlides";

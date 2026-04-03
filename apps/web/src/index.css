@@ -10,8 +10,16 @@ html,
 body,
 #root {
   height: 100%;
-  background-color: var(--color-background);
-  color: var(--color-text-secondary);
+  /*
+   * Tamagui v2 hashes all CSS custom-property names at build time, so they
+   * cannot be referenced by human-readable names here. Use the raw token
+   * values from packages/config/src/tokens.ts directly.
+   *
+   * tokenValues.color.background  → #000000
+   * tokenValues.color.textSecondary → #FFFFFF99
+   */
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.6);
   color-scheme: dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

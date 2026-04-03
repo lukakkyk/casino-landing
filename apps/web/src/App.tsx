@@ -2,44 +2,32 @@ import { YStack } from 'tamagui';
 import { Header, HeroSlider, mockHeroSlides } from '@casino/shared-ui';
 import { useState } from 'react';
 
-
 function App() {
-  const [balance, setBalance] = useState(1245.75);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-  const [refreshError, setRefreshError] = useState<string | null>(null);
+  const [balance, setBalance] = useState(12405.20);
 
   const handleRefresh = () => {
-    setIsRefreshing(true);
-    setRefreshError(null);
-
-    setTimeout(() => {
-      const failed = Math.random() < 0.25;
-      if (failed) {
-        setRefreshError('Failed to refresh');
-      } else {
-        const delta = (Math.random() * 120 - 40);
-        setBalance((prev) => Math.max(0, prev + delta));
-      }
-      setIsRefreshing(false);
-    }, 900);
+    const delta = Math.random() * 200 - 80;
+    setBalance((prev) => Math.max(0, prev + delta));
   };
+
   return (
-    <YStack backgroundColor="$background" padding="$md" gap="$md">
+    <YStack backgroundColor="$background" gap="$md" minHeight="100%">
       <Header
-        userName="John"
+        brandName="Nuke"
+        userName="David"
         balance={balance}
-        isRefreshing={isRefreshing}
-        refreshError={refreshError}
-        onRefresh={handleRefresh}
+        notificationCount={2}
+        onRefreshPress={handleRefresh}
       />
 
-      <HeroSlider
-        slides={mockHeroSlides}
-        onCtaPress={(slide) => {
-          console.log('CTA pressed:', slide.title);
-        }}
-      />
-
+      <YStack paddingHorizontal="$md" gap="$md">
+        <HeroSlider
+          slides={mockHeroSlides}
+          onCtaPress={(slide) => {
+            console.log('CTA pressed:', slide.title);
+          }}
+        />
+      </YStack>
     </YStack>
   );
 }

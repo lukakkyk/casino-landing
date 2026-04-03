@@ -18,6 +18,7 @@ export const tokenValues = {
     lg: 16,
     xl: 24,
     "2xl": 32,
+    "3xl": 40,
   },
 
   size: {
@@ -28,6 +29,7 @@ export const tokenValues = {
     lg: 20,
     xl: 24,
     "2xl": 32,
+    "3xl": 40,
   },
 
   radius: {
