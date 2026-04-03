@@ -53,6 +53,9 @@ importers:
       '@casino/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@casino/shared-stores':
+        specifier: workspace:*
+        version: link:../../packages/shared-stores
       '@casino/shared-ui':
         specifier: workspace:*
         version: link:../../packages/shared-ui
@@ -72,6 +75,9 @@ importers:
         specifier: 2.0.0-rc.36
         version: 2.0.0-rc.36(react-dom@19.1.0(react@19.1.0))(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.7(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0)(sf-symbols-typescript@2.2.0)
       '@tamagui/core':
+        specifier: 2.0.0-rc.36
+        version: 2.0.0-rc.36(react-dom@19.1.0(react@19.1.0))(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0)(sf-symbols-typescript@2.2.0)
+      '@tamagui/toast':
         specifier: 2.0.0-rc.36
         version: 2.0.0-rc.36(react-dom@19.1.0(react@19.1.0))(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.0)(react@19.1.0))(react@19.1.0)(sf-symbols-typescript@2.2.0)
       expo:
@@ -244,7 +250,14 @@ importers:
 
   packages/shared-api: {}
 
-  packages/shared-stores: {}
+  packages/shared-stores:
+    dependencies:
+      '@casino/shared-api':
+        specifier: workspace:*
+        version: link:../shared-api
+      zustand:
+        specifier: ^5.0.12
+        version: 5.0.12(@types/react@19.1.0)(react@19.1.0)(use-sync-external-store@1.6.0(react@19.1.0))
 
   packages/shared-ui:
     dependencies:

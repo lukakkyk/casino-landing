@@ -6,7 +6,7 @@ import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TamaguiProvider config={tamaguiConfig as any} defaultTheme="dark">
+    <TamaguiProvider config={tamaguiConfig as any} defaultTheme="app">
       <App />
     </TamaguiProvider>
   </React.StrictMode>,

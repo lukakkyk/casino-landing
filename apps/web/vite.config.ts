@@ -7,17 +7,21 @@ const rnwPath = path.dirname(require.resolve("react-native-web/package.json"));
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env': { NODE_ENV: JSON.stringify('development') },
-    global: 'globalThis',
+    "process.env": { NODE_ENV: JSON.stringify("development") },
+    global: "globalThis",
   },
   resolve: {
+    dedupe: ["tamagui", "@tamagui/core", "@tamagui/web", "react", "react-dom"],
     alias: {
       "react-native/Libraries/Utilities/codegenNativeComponent": path.resolve(
         __dirname,
         "src/shims/codegenNativeComponent.js",
       ),
       "react-native": rnwPath,
-      "react-native-svg": path.resolve(__dirname, "src/shims/react-native-svg.js"),
+      "react-native-svg": path.resolve(
+        __dirname,
+        "src/shims/react-native-svg.js",
+      ),
       "@casino/shared-ui": path.resolve(
         __dirname,
         "../../packages/shared-ui/src",

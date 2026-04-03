@@ -2,14 +2,12 @@ import { createTokens } from "tamagui";
 
 export const tokenValues = {
   color: {
-    background: "#0B0F1A",
-    surface: "#121826",
-    surfaceHover: "#1A2235",
-    textPrimary: "#FFFFFF",
-    textSecondary: "#A7B0C0",
-    accent: "#F5C451",
-    success: "#22C55E",
-    danger: "#EF4444",
+    background: "#000000",
+    secondBackground: "#ffffff",
+    textPrimary: "#8734F8",
+    textSecondary: "#FFFFFF99",
+    danger: "#AD1840",
+    success: "#44C231",
   },
 
   space: {

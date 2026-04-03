@@ -124,26 +124,20 @@ export function Header({
 
     return (
         <YStack
-            backgroundColor="$surface"
+            backgroundColor="$background"
             borderRadius="$xl"
             padding="$lg"
             gap="$md"
-            borderWidth={1}
-            borderColor="$surfaceHover"
-            shadowColor="$color"
-            shadowOpacity={0.08}
-            shadowRadius={18}
-            shadowOffset={{ width: 0, height: 8 }}
         >
             <XStack justifyContent="space-between" alignItems="center" gap="$md">
                 <XStack alignItems="center" gap="$md" flex={1}>
                     <Circle
                         size={56}
-                        backgroundColor="$surfaceHover"
+                        backgroundColor="$textPrimary"
                         borderWidth={1}
-                        borderColor="$accent"
+                        borderColor="$textPrimary"
                     >
-                        <Text color="$accent" fontSize="$xl" fontWeight="800">
+                        <Text color="$secondBackground" fontSize="$xl" fontWeight="800">
                             {userInitial}
                         </Text>
                     </Circle>
@@ -208,7 +202,7 @@ export function Header({
 
                     {showMenu ? (
                         <HeaderActionButton onPress={onMenuPress}>
-                            <Menu size={16} color="color" />
+                            <Menu size={16} color="$textPrimary" />
                         </HeaderActionButton>
                     ) : null}
                 </XStack>

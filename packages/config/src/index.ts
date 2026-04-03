@@ -1,2 +1,2 @@
 export { default as tamaguiConfig } from "./tamagui.config";
-export { tokens } from "./tokens";
+export { tokens, tokenValues } from "./tokens";

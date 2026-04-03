@@ -1,4 +1,4 @@
-import type { HeroSlide } from "../components/HeroSlider/HeroSlider";
+import type { HeroSlide } from "../components/HeroSlider/heroTypes";
 
 export const mockHeroSlides: HeroSlide[] = [
   {

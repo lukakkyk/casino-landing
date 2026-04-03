@@ -24,11 +24,10 @@ function App() {
     }, 900);
   };
   return (
-    <YStack minHeight="100vh" backgroundColor="$background" padding="$md" gap="$md">
+    <YStack backgroundColor="$background" padding="$md" gap="$md">
       <Header
         userName="John"
         balance={balance}
-        hasNotifications
         isRefreshing={isRefreshing}
         refreshError={refreshError}
         onRefresh={handleRefresh}
@@ -40,6 +39,7 @@ function App() {
           console.log('CTA pressed:', slide.title);
         }}
       />
+
     </YStack>
   );
 }

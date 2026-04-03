@@ -1,16 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
 import { Button, Circle, Image, Text, XStack, YStack } from 'tamagui';
+import type { HeroSlide } from './heroTypes';
 
 const { width: screenWidth } = Dimensions.get('window');
-
-export type HeroSlide = {
-    id: string;
-    title: string;
-    subtitle: string;
-    ctaLabel: string;
-    imageUrl: string;
-};
 
 type HeroSliderProps = {
     slides: HeroSlide[];
