@@ -9,6 +9,7 @@
         "typecheck": "pnpm -r typecheck"
     },
     "devDependencies": {
+        "@tamagui/vite-plugin": "2.0.0-rc.36",
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.0",
         "typescript": "^6.0.2"

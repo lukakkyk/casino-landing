@@ -1,4 +1,4 @@
-
+import { colors } from '@casino/config';
 import { Image, Text, XStack, YStack, Circle } from 'tamagui';
 
 type GameCardProps = {
@@ -27,7 +27,7 @@ export function GameCard({
             </YStack>
 
             <XStack alignItems="center" paddingHorizontal="$xs" gap="$xs">
-                <Circle size="$xs" backgroundColor="$success" />
+                <Circle size="$xs" backgroundColor={colors.success} />
                 <Text color="$secondBackground" fontSize="$sm" fontWeight="600">
                     {playersCount} Playing
                 </Text>

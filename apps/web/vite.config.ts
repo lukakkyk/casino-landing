@@ -28,7 +28,10 @@ export default defineConfig({
       ),
       "react-native": "react-native-web",
       tamagui: path.resolve(__dirname, "../../node_modules/tamagui"),
-      "@tamagui/core": path.resolve(__dirname, "../../node_modules/@tamagui/core"),
+      "@tamagui/core": path.resolve(
+        __dirname,
+        "../../node_modules/@tamagui/core",
+      ),
       "react-native-svg": path.resolve(
         __dirname,
         "src/shims/react-native-svg.js",

@@ -3,6 +3,7 @@ import { Dimensions, ScrollView } from 'react-native';
 import type { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { Button, Circle, Image, Text, XStack, YStack } from 'tamagui';
 import { useHeroSlides, type HeroSlide } from '@casino/shared-api';
+import { colors } from '@casino/config';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -20,17 +21,17 @@ function SliderSkeleton() {
             height={SLIDER_HEIGHT}
             borderRadius={CARD_RADIUS}
             overflow="hidden"
-            backgroundColor="$surface"
+            backgroundColor={colors.surface}
             padding="$lg"
             justifyContent="space-between"
         >
             <YStack gap="$sm">
-                <YStack width="70%" height={28} borderRadius={12} backgroundColor="$surfaceHover" />
-                <YStack width="90%" height={16} borderRadius={8} backgroundColor="$surfaceHover" />
-                <YStack width="75%" height={16} borderRadius={8} backgroundColor="$surfaceHover" />
+                <YStack width="70%" height={28} borderRadius={12} backgroundColor={colors.surfaceHover} />
+                <YStack width="90%" height={16} borderRadius={8} backgroundColor={colors.surfaceHover} />
+                <YStack width="75%" height={16} borderRadius={8} backgroundColor={colors.surfaceHover} />
             </YStack>
 
-            <YStack width={120} height={42} borderRadius={999} backgroundColor="$surfaceHover" />
+            <YStack width={120} height={42} borderRadius={999} backgroundColor={colors.surfaceHover} />
         </YStack>
     );
 }
@@ -40,30 +41,28 @@ function SliderError({ message, onRetry }: { message: string; onRetry: () => voi
         <YStack
             height={SLIDER_HEIGHT}
             borderRadius={CARD_RADIUS}
-            backgroundColor="$surface"
+            backgroundColor={colors.surface}
             borderWidth={1}
-            borderColor="$danger"
+            borderColor={colors.danger}
             padding="$lg"
             justifyContent="center"
             alignItems="center"
             gap="$sm"
         >
-            <Text color="$danger" fontSize="$lg" fontWeight="800">
+            <Text color={colors.danger} fontSize="$lg" fontWeight="800">
                 Failed to load slides
             </Text>
-            <Text color="$textSecondary" textAlign="center">
+            <Text color={colors.textSecondary} textAlign="center">
                 {message}
             </Text>
-            <Button size="$sm" borderRadius={999} backgroundColor="$danger" onPress={onRetry}>
+            <Button size="$sm" borderRadius={999} backgroundColor={colors.danger} onPress={onRetry}>
                 Retry
             </Button>
         </YStack>
     );
 }
 
-/**
- * Hero carousel powered by shared React Query slide data.
- */
+
 export function HeroSlider({
     autoPlayInterval = 3500,
     onCtaPress,
@@ -146,7 +145,7 @@ export function HeroSlider({
                             height={SLIDER_HEIGHT}
                             borderRadius={CARD_RADIUS}
                             overflow="hidden"
-                            backgroundColor="$surface"
+                            backgroundColor={colors.surface}
                             position="relative"
                         >
                             {!imageFailed ? (
@@ -177,7 +176,7 @@ export function HeroSlider({
                                             left={0}
                                             right={0}
                                             bottom={0}
-                                            backgroundColor="$surfaceHover"
+                                            backgroundColor={colors.surfaceHover}
                                         />
                                     ) : null}
                                 </>
@@ -188,11 +187,11 @@ export function HeroSlider({
                                     left={0}
                                     right={0}
                                     bottom={0}
-                                    backgroundColor="$surfaceHover"
+                                    backgroundColor={colors.surfaceHover}
                                     justifyContent="center"
                                     alignItems="center"
                                 >
-                                    <Text color="$textSecondary">Image unavailable</Text>
+                                    <Text color={colors.textSecondary}>Image unavailable</Text>
                                 </YStack>
                             )}
 
@@ -202,7 +201,9 @@ export function HeroSlider({
                                 left={0}
                                 right={0}
                                 bottom={0}
-                                backgroundColor="rgba(0,0,0,0.38)"
+                                backgroundColor={colors.background}
+                                opacity={0.55}
+                                zIndex={1}
                             />
 
                             <YStack
@@ -212,11 +213,11 @@ export function HeroSlider({
                                 gap="$sm"
                                 zIndex={2}
                             >
-                                <Text color="white" fontSize="$8" fontWeight="900">
+                                <Text color={colors.secondBackground} fontSize="$8" fontWeight="900">
                                     {slide.title}
                                 </Text>
 
-                                <Text color="rgba(255,255,255,0.88)" fontSize="$sm">
+                                <Text color={colors.textSecondary} fontSize="$sm">
                                     {slide.subtitle}
                                 </Text>
 
@@ -224,7 +225,7 @@ export function HeroSlider({
                                     alignSelf="flex-start"
                                     size="$md"
                                     borderRadius={999}
-                                    backgroundColor={slide.ctaColor}
+                                    backgroundColor={colors.accent}
                                     pressStyle={{ scale: 0.97, opacity: 0.92 }}
                                     onPress={() => onCtaPress?.(slide)}
                                 >
@@ -244,7 +245,7 @@ export function HeroSlider({
                         <Circle
                             key={slide.id}
                             size={isActive ? 10 : 8}
-                            backgroundColor={isActive ? '$accent' : '$surfaceHover'}
+                            backgroundColor={isActive ? colors.accent : colors.surfaceHover}
                             opacity={isActive ? 1 : 0.7}
                         />
                     );
