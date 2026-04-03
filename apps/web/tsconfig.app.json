@@ -25,8 +25,10 @@
 
     "baseUrl": ".",
     "paths": {
-      "@casino/config": ["../../packages/config/src"],
-      "@casino/shared-ui": ["../../packages/shared-ui/src"]
+      "@casino/config": ["../../packages/config/src/index.ts"],
+      "@casino/shared-api": ["../../packages/shared-api/src/index.ts"],
+      "@casino/shared-stores": ["../../packages/shared-stores/src/index.ts"],
+      "@casino/shared-ui": ["../../packages/shared-ui/src/index.ts"]
     }
   },
   "include": ["src"]

@@ -27,6 +27,8 @@ export default defineConfig({
         "src/shims/codegenNativeComponent.js",
       ),
       "react-native": "react-native-web",
+      tamagui: path.resolve(__dirname, "../../node_modules/tamagui"),
+      "@tamagui/core": path.resolve(__dirname, "../../node_modules/@tamagui/core"),
       "react-native-svg": path.resolve(
         __dirname,
         "src/shims/react-native-svg.js",
@@ -35,10 +37,24 @@ export default defineConfig({
         __dirname,
         "../../packages/shared-ui/src",
       ),
+      "@casino/shared-api": path.resolve(
+        __dirname,
+        "../../packages/shared-api/src",
+      ),
+      "@casino/shared-stores": path.resolve(
+        __dirname,
+        "../../packages/shared-stores/src",
+      ),
       "@casino/config": path.resolve(__dirname, "../../packages/config/src"),
     },
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "react-native-web", "tamagui"],
+    include: [
+      "react",
+      "react-dom",
+      "react-native-web",
+      "tamagui",
+      "@tamagui/core",
+    ],
   },
 });

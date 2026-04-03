@@ -4,8 +4,11 @@ export const tokenValues = {
   color: {
     background: "#000000",
     secondBackground: "#ffffff",
+    surface: "#1A1F2E",
+    surfaceHover: "#252B3D",
     textPrimary: "#8734F8",
     textSecondary: "#FFFFFF99",
+    accent: "#8734F8",
     danger: "#AD1840",
     success: "#44C231",
   },

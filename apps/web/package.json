@@ -12,6 +12,7 @@
   "dependencies": {
     "@casino/config": "workspace:*",
     "@casino/shared-ui": "workspace:*",
+    "@tanstack/react-query": "^5.96.1",
     "@tamagui/config": "2.0.0-rc.36",
     "@tamagui/core": "2.0.0-rc.36",
     "react": "19.1.0",

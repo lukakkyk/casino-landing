@@ -1,23 +1,23 @@
 import { createTamagui } from "tamagui";
-import { tokens } from "./tokens";
+import { tokenValues, tokens } from "./tokens";
 
-const config = createTamagui({
+export const tamaguiConfig = createTamagui({
   tokens,
   themes: {
     app: {
-      background: tokens.color.background,
-      secondBackground: tokens.color.secondBackground,
-      color: tokens.color.secondBackground,
-      textPrimary: tokens.color.textPrimary,
-      textSecondary: tokens.color.textSecondary,
-      danger: tokens.color.danger,
-      success: tokens.color.success,
-      accent: tokens.color.textPrimary,
-      surface: "#1A1F2E",
-      surfaceHover: "#252B3D",
+      background: tokenValues.color.background,
+      secondBackground: tokenValues.color.secondBackground,
+      surface: tokenValues.color.surface,
+      surfaceHover: tokenValues.color.surfaceHover,
+      color: tokenValues.color.secondBackground,
+      textPrimary: tokenValues.color.textPrimary,
+      textSecondary: tokenValues.color.textSecondary,
+      accent: tokenValues.color.accent,
+      danger: tokenValues.color.danger,
+      success: tokenValues.color.success,
     },
   },
   defaultTheme: "app",
 });
 
-export default config;
+export default tamaguiConfig;

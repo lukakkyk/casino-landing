@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
+import type { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { Button, Circle, Image, Text, XStack, YStack } from 'tamagui';
-import type { HeroSlide } from './heroTypes';
+import { useHeroSlides, type HeroSlide } from '@casino/shared-api';
 
 const { width: screenWidth } = Dimensions.get('window');
 
 type HeroSliderProps = {
-    slides: HeroSlide[];
-    isLoading?: boolean;
-    error?: string | null;
     autoPlayInterval?: number;
     onCtaPress?: (slide: HeroSlide) => void;
 };
@@ -37,7 +35,7 @@ function SliderSkeleton() {
     );
 }
 
-function SliderError({ message }: { message: string }) {
+function SliderError({ message, onRetry }: { message: string; onRetry: () => void }) {
     return (
         <YStack
             height={SLIDER_HEIGHT}
@@ -56,21 +54,37 @@ function SliderError({ message }: { message: string }) {
             <Text color="$textSecondary" textAlign="center">
                 {message}
             </Text>
+            <Button size="$sm" borderRadius={999} backgroundColor="$danger" onPress={onRetry}>
+                Retry
+            </Button>
         </YStack>
     );
 }
 
+/**
+ * Hero carousel powered by shared React Query slide data.
+ */
 export function HeroSlider({
-    slides,
-    isLoading = false,
-    error = null,
     autoPlayInterval = 3500,
     onCtaPress,
 }: HeroSliderProps) {
+    const { data: heroSlides = [], isLoading, isError, error, refetch } = useHeroSlides();
     const scrollRef = useRef<ScrollView>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [imageLoadedMap, setImageLoadedMap] = useState<Record<string, boolean>>({});
     const [imageErrorMap, setImageErrorMap] = useState<Record<string, boolean>>({});
+    const slides = useMemo(
+        () =>
+            heroSlides.map((slide) => ({
+                id: slide.id,
+                title: slide.title,
+                subtitle: slide.subtitle,
+                ctaLabel: slide.ctaLabel,
+                imageUrl: slide.imageUrl,
+                ctaColor: slide.ctaColor,
+            })),
+        [heroSlides],
+    );
 
     const sliderWidth = useMemo(() => screenWidth - 32, []);
 
@@ -102,12 +116,13 @@ export function HeroSlider({
         return <SliderSkeleton />;
     }
 
-    if (error) {
-        return <SliderError message={error} />;
+    if (isError) {
+        const message = error instanceof Error ? error.message : 'Something went wrong.';
+        return <SliderError message={message} onRetry={() => void refetch()} />;
     }
 
     if (!slides.length) {
-        return <SliderError message="No slides available." />;
+        return <SliderError message="No slides available." onRetry={() => void refetch()} />;
     }
 
     return (
@@ -209,7 +224,7 @@ export function HeroSlider({
                                     alignSelf="flex-start"
                                     size="$md"
                                     borderRadius={999}
-                                    backgroundColor="$accent"
+                                    backgroundColor={slide.ctaColor}
                                     pressStyle={{ scale: 0.97, opacity: 0.92 }}
                                     onPress={() => onCtaPress?.(slide)}
                                 >

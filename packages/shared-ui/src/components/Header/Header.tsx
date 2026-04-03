@@ -1,26 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
 import { Platform } from 'react-native';
-import { Bell, ChevronDown, RotateCw, User } from '@tamagui/lucide-icons';
-import { Button, Circle, isWeb, Text, XStack } from 'tamagui';
+import { AlertCircle, Bell, ChevronDown, RotateCw, User } from '@tamagui/lucide-icons';
+import { Button, Circle, Spinner, Text, XStack } from 'tamagui';
+import { useUserBalance } from '@casino/shared-api';
+import {
+    useBalance,
+    useBalanceError,
+    useBalanceStatus,
+    useUser,
+    useUserStore,
+} from '@casino/shared-stores';
+
 
 export type HeaderProps = {
     brandName?: string;
-    balance: number;
-    currency?: string;
     notificationCount?: number;
-    userName?: string;
     onNotificationsPress?: () => void;
     onRefreshPress?: () => void;
     onProfilePress?: () => void;
 };
 
-
-
-function formatBalance(value: number, currency: string): string {
-    return `${currency}${value.toLocaleString(undefined, {
+function formatBalance(value: number, currencyCode: string): string {
+    return new Intl.NumberFormat(undefined, {
+        style: 'currency',
+        currency: currencyCode,
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
-    })}`;
+    }).format(value);
 }
 
 function useAnimatedBalance(target: number) {
@@ -121,14 +127,21 @@ function NotificationButton({
 function BalancePill({
     balance,
     currency,
+    status,
+    error,
     isWeb,
     onRefreshPress,
 }: {
     balance: number;
     currency: string;
+    status: 'idle' | 'loading' | 'success' | 'error';
+    error: string | null;
     isWeb: boolean;
     onRefreshPress?: () => void;
 }) {
+    const isError = status === 'error' || Boolean(error);
+    const isLoading = status === 'loading';
+
     return (
         <XStack
             alignItems="center"
@@ -137,12 +150,16 @@ function BalancePill({
             paddingVertical={6}
             backgroundColor={GLASS_BG}
             borderWidth={1}
-            borderColor={GLASS_BORDER}
+            borderColor={isError ? '$danger' : GLASS_BORDER}
             borderRadius={999}
         >
-            <Text color="white" fontSize={isWeb ? 14 : 13} fontWeight="700">
+            <Text color={isError ? '$danger' : 'white'} fontSize={isWeb ? 14 : 13} fontWeight="700">
                 {formatBalance(balance, currency)}
             </Text>
+            {isLoading ? (
+                <Spinner size="small" color="$textSecondary" />
+            ) : null}
+            {isError ? <AlertCircle size={isWeb ? 16 : 13} color="$danger" /> : null}
             <Button
                 size="$xs"
                 circular
@@ -213,18 +230,30 @@ function ProfileButton({
 
 
 
+
 export function Header({
     brandName = 'Nuke',
-    balance,
-    currency = '$',
     notificationCount = 0,
-    userName,
     onNotificationsPress,
     onRefreshPress,
     onProfilePress,
 }: HeaderProps) {
     const isWeb = Platform.OS === 'web';
+    const user = useUser();
+    const balance = useBalance();
+    const balanceStatus = useBalanceStatus();
+    const balanceError = useBalanceError();
+    const triggerRefresh = useUserStore((state) => state.triggerRefresh);
+    const currencyCode = user?.currency ?? 'USD';
+    const displayName = user?.name;
+
+    useUserBalance();
+
     const displayBalance = useAnimatedBalance(balance);
+    const handleRefresh = () => {
+        triggerRefresh();
+        onRefreshPress?.();
+    };
 
     return (
         <XStack
@@ -243,12 +272,14 @@ export function Header({
                 />
                 <BalancePill
                     balance={displayBalance}
-                    currency={currency}
+                    currency={currencyCode}
+                    status={balanceStatus}
+                    error={balanceError}
                     isWeb={isWeb}
-                    onRefreshPress={onRefreshPress}
+                    onRefreshPress={handleRefresh}
                 />
                 <ProfileButton
-                    userName={userName}
+                    userName={displayName}
                     isWeb={isWeb}
                     onPress={onProfilePress}
                 />

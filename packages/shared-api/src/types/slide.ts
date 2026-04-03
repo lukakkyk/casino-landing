@@ -4,6 +4,7 @@ export type HeroSlide = {
   subtitle: string;
   ctaLabel: string;
   imageUrl: string;
+  ctaColor: string;
 };
 
 export type HeroSlidesResponse = {
