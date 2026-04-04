@@ -45,10 +45,10 @@ pnpm-workspace.yaml
 ```bash
 pnpm install
 
-run web => 
+run web 
 pnpm --filter web dev
 
-run mobile => 
+run mobile 
 pnpm --filter mobile start
 
 Design References:
