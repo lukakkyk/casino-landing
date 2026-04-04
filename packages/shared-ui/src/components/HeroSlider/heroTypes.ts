@@ -6,6 +6,6 @@ export type HeroSlide = {
   title: string;
   subtitle: string;
   ctaLabel: string;
-  imageUrl: string;
+  imageUrl: string | number;
   ctaColor: string;
 };

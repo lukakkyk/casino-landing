@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { Platform } from 'react-native'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useWindowDimensions } from 'react-native'
 import {
     AlertCircle,
     Bell,
@@ -69,23 +69,59 @@ function useAnimatedBalance(target: number) {
     return display
 }
 
-/* ---------- UI ნაწილები ---------- */
+type HeaderViewport = {
+    isMobile: boolean
+    isTablet: boolean
+    isDesktop: boolean
+    showBrandText: boolean
+    showProfileName: boolean
+    outerPx: number
+    innerPx: number
+    actionsGap: number
+    balanceMaxWidth: number
+    containerMaxWidth: number
+}
 
-function BrandBlock({ brandName, isWeb }: { brandName: string; isWeb: boolean }) {
+function getViewport(width: number): HeaderViewport {
+    const isMobile = width < 768
+    const isTablet = width >= 768 && width < 1200
+    const isDesktop = width >= 1200
+
+    return {
+        isMobile,
+        isTablet,
+        isDesktop,
+        showBrandText: width >= 900,
+        showProfileName: width >= 1100,
+        outerPx: isMobile ? 16 : isTablet ? 24 : 32,
+        innerPx: isMobile ? 10 : 14,
+        actionsGap: isMobile ? 8 : 10,
+        balanceMaxWidth: isMobile ? 150 : isTablet ? 200 : 240,
+        containerMaxWidth: 1280,
+    }
+}
+
+function BrandBlock({
+    brandName,
+    showBrandText,
+}: {
+    brandName: string
+    showBrandText: boolean
+}) {
     return (
-        <XStack alignItems="center" gap="$sm">
+        <XStack alignItems="center" gap="$sm" flexShrink={0}>
             <Circle size={36} backgroundColor={colors.textPrimary}>
                 <Text color={colors.secondBackground} fontSize={18} fontWeight="800">
                     ♠
                 </Text>
             </Circle>
 
-            {isWeb && (
+            {showBrandText && (
                 <Text
                     color={colors.secondBackground}
-                    fontSize={17}
+                    fontSize={28}
                     fontWeight="800"
-                    letterSpacing={-0.3}
+                    letterSpacing={-0.4}
                 >
                     {brandName}
                 </Text>
@@ -111,6 +147,7 @@ function NotificationButton({
             borderWidth={1}
             borderColor={colors.glassBorder}
             onPress={onPress}
+            position="relative"
             hoverStyle={{ backgroundColor: colors.glassHoverBg }}
             pressStyle={{ scale: 0.95, opacity: 0.85 }}
         >
@@ -141,14 +178,16 @@ function BalancePill({
     currency,
     status,
     error,
-    isWeb,
+    maxWidth,
+    compact,
     onRefreshPress,
 }: {
     balance: number
     currency: string
     status: 'idle' | 'loading' | 'success' | 'error'
     error: string | null
-    isWeb: boolean
+    maxWidth: number
+    compact: boolean
     onRefreshPress?: () => void
 }) {
     const isError = status === 'error' || Boolean(error)
@@ -157,37 +196,54 @@ function BalancePill({
     return (
         <XStack
             alignItems="center"
-            gap={6}
-            paddingHorizontal={isWeb ? 14 : 10}
+            gap={8}
+            paddingLeft={compact ? 10 : 14}
+            paddingRight={compact ? 6 : 8}
             paddingVertical={6}
             backgroundColor={colors.glassBg}
             borderWidth={1}
             borderColor={isError ? colors.danger : colors.glassBorder}
             borderRadius={999}
+            maxWidth={maxWidth}
+            flexShrink={1}
+            minWidth={0}
         >
             <Text
                 color={isError ? colors.danger : colors.secondBackground}
-                fontSize={isWeb ? 14 : 13}
+                fontSize={compact ? 13 : 14}
                 fontWeight="700"
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                flexShrink={1}
             >
                 {formatBalance(balance, currency)}
             </Text>
 
             {isLoading && <Spinner size="small" color={colors.textSecondary} />}
 
-            {isError && <AlertCircle size={isWeb ? 16 : 13} color={colors.danger} />}
+            {isError && (
+                <AlertCircle size={compact ? 14 : 16} color={colors.danger} />
+            )}
 
             <Button
-                size="$xs"
                 circular
                 backgroundColor="transparent"
                 borderWidth={0}
-                padding={2}
+                padding={0}
                 onPress={onRefreshPress}
-                hoverStyle={{ opacity: 0.7 }}
-                pressStyle={{ scale: 0.9, opacity: 0.7 }}
+                hoverStyle={{
+                    backgroundColor: 'rgba(255,255,255,0.06)',
+                    opacity: 1,
+                }}
+                pressStyle={{
+                    scale: 0.94,
+                    opacity: 0.8,
+                }}
             >
-                <RotateCw size={isWeb ? 18 : 13} color={colors.muted} />
+                <RotateCw
+                    size={compact ? 16 : 20}
+                    color={isError ? colors.danger : colors.secondBackground}
+                />
             </Button>
         </XStack>
     )
@@ -195,14 +251,14 @@ function BalancePill({
 
 function ProfileButton({
     userName,
-    isWeb,
+    showProfileName,
     onPress,
 }: {
     userName?: string
-    isWeb: boolean
+    showProfileName: boolean
     onPress?: () => void
 }) {
-    if (isWeb) {
+    if (showProfileName) {
         return (
             <Button
                 backgroundColor={colors.glassBg}
@@ -219,8 +275,14 @@ function ProfileButton({
                 <XStack alignItems="center" gap={7}>
                     <User size={18} color={colors.secondBackground} />
 
-                    {userName && (
-                        <Text color={colors.secondBackground} fontSize="$md" fontWeight="600">
+                    {!!userName && (
+                        <Text
+                            color={colors.secondBackground}
+                            fontSize="$md"
+                            fontWeight="600"
+                            numberOfLines={1}
+                            maxWidth={120}
+                        >
                             {userName}
                         </Text>
                     )}
@@ -247,8 +309,6 @@ function ProfileButton({
     )
 }
 
-/* ---------- MAIN ---------- */
-
 export function Header({
     brandName = 'Nuke',
     notificationCount = 0,
@@ -256,7 +316,8 @@ export function Header({
     onRefreshPress,
     onProfilePress,
 }: HeaderProps) {
-    const isWeb = Platform.OS === 'web'
+    const { width } = useWindowDimensions()
+    const viewport = useMemo(() => getViewport(width), [width])
 
     const user = useUser()
     const balance = useBalance()
@@ -278,34 +339,51 @@ export function Header({
 
     return (
         <XStack
-            justifyContent="space-between"
-            alignItems="center"
-            paddingHorizontal={isWeb ? 32 : 16}
-            paddingVertical={isWeb ? 14 : 10}
-            backgroundColor={colors.background}
+            width="100%"
+            justifyContent="center"
+            paddingHorizontal={viewport.outerPx}
+            paddingVertical={viewport.isMobile ? 10 : 14}
+            backgroundColor="transparent"
         >
-            <BrandBlock brandName={brandName} isWeb={isWeb} />
-
-            <XStack alignItems="center" gap={isWeb ? 10 : 8}>
-                <NotificationButton
-                    count={notificationCount}
-                    onPress={onNotificationsPress}
+            <XStack
+                width="100%"
+                maxWidth={viewport.containerMaxWidth}
+                alignItems="center"
+                justifyContent="space-between"
+                gap={12}
+            >
+                <BrandBlock
+                    brandName={brandName}
+                    showBrandText={viewport.showBrandText}
                 />
 
-                <BalancePill
-                    balance={displayBalance}
-                    currency={currencyCode}
-                    status={balanceStatus}
-                    error={balanceError}
-                    isWeb={isWeb}
-                    onRefreshPress={handleRefresh}
-                />
+                <XStack
+                    alignItems="center"
+                    gap={viewport.actionsGap}
+                    flexShrink={1}
+                    minWidth={0}
+                >
+                    <NotificationButton
+                        count={notificationCount}
+                        onPress={onNotificationsPress}
+                    />
 
-                <ProfileButton
-                    userName={displayName}
-                    isWeb={isWeb}
-                    onPress={onProfilePress}
-                />
+                    <BalancePill
+                        balance={displayBalance}
+                        currency={currencyCode}
+                        status={balanceStatus}
+                        error={balanceError}
+                        maxWidth={viewport.balanceMaxWidth}
+                        compact={viewport.isMobile}
+                        onRefreshPress={handleRefresh}
+                    />
+
+                    <ProfileButton
+                        userName={displayName}
+                        showProfileName={viewport.showProfileName}
+                        onPress={onProfilePress}
+                    />
+                </XStack>
             </XStack>
         </XStack>
     )

@@ -5,3 +5,4 @@ export type { HeroSlide } from "./components/HeroSlider/heroTypes";
 export { mockHeroSlides } from "./data/mockHeroSlides";
 export { ToastDemo, CurrentToast, ErrorToast } from "./components/Toast/Toast";
 export { PopularGamesSection } from "./components/PopularGamesSection/PopularGameSections";
+export type { PopularGamesSectionProps } from "./components/PopularGamesSection/PopularGameSections";

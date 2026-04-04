@@ -26,7 +26,16 @@ export default defineConfig({
         __dirname,
         "src/shims/codegenNativeComponent.js",
       ),
-      "react-native": "react-native-web",
+      "react-native/Libraries/Renderer/shims/ReactFabric": path.resolve(
+        __dirname,
+        "src/shims/ReactFabric.js",
+      ),
+      "expo-image": path.resolve(__dirname, "src/shims/expo-image.js"),
+      "react-native-reanimated": path.resolve(
+        __dirname,
+        "src/shims/react-native-reanimated.js",
+      ),
+      "react-native": path.resolve(__dirname, "src/shims/react-native.js"),
       tamagui: path.resolve(__dirname, "../../node_modules/tamagui"),
       "@tamagui/core": path.resolve(
         __dirname,
@@ -52,6 +61,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
+    exclude: ["react-native-reanimated", "react-native-worklets"],
     include: [
       "react",
       "react-dom",

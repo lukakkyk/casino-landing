@@ -29,7 +29,7 @@ export interface UserState {
 
 const mockUser: User = {
   id: "usr_001",
-  name: "Luka Kekalainen",
+  name: "Luka Kobaidze",
   avatarUrl: "https://i.pravatar.cc/150?u=luka",
   currency: "USD",
 };
@@ -58,7 +58,9 @@ const fallbackStorage: StateStorage = {
 const nativeStorage: StateStorage = {
   getItem: async (name) => {
     try {
-      const module = (await import(/* @vite-ignore */ ASYNC_STORAGE_MODULE)) as AsyncStorageModule;
+      const module = (await import(
+        /* @vite-ignore */ ASYNC_STORAGE_MODULE
+      )) as AsyncStorageModule;
       return await module.default.getItem(name);
     } catch {
       return fallbackStorage.getItem(name);
@@ -66,7 +68,9 @@ const nativeStorage: StateStorage = {
   },
   setItem: async (name, value) => {
     try {
-      const module = (await import(/* @vite-ignore */ ASYNC_STORAGE_MODULE)) as AsyncStorageModule;
+      const module = (await import(
+        /* @vite-ignore */ ASYNC_STORAGE_MODULE
+      )) as AsyncStorageModule;
       await module.default.setItem(name, value);
       return;
     } catch {
@@ -75,7 +79,9 @@ const nativeStorage: StateStorage = {
   },
   removeItem: async (name) => {
     try {
-      const module = (await import(/* @vite-ignore */ ASYNC_STORAGE_MODULE)) as AsyncStorageModule;
+      const module = (await import(
+        /* @vite-ignore */ ASYNC_STORAGE_MODULE
+      )) as AsyncStorageModule;
       await module.default.removeItem(name);
       return;
     } catch {
